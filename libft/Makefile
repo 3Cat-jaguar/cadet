@@ -1,12 +1,22 @@
 CC = gcc
-CFLAG = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
+NAME = libft.a
+SRCS = ft_strlen.c
 
+OBJECTS = $(SRCS:.c=.o)
 
-libft.a : ft_strlen.o
-	ar rc libft.a ft_strlen.o
+all : $(NAME)
 
-ft_strlen.o : ft_strlen.c
-	gcc -c ft_strlen.c
+$(NAME) : $(OBJECTS)
+	ar rc $@ $^
+
+$(OBJECTS): $(SRCS)
+	$(CC) $(CFLAGS) -c $^
 
 clean : 
-	rm *.o libft.a	
+	rm -f $(OBJECTS)
+
+fclean : clean
+	rm -f $(NAME)
+
+re : fclean clean all
