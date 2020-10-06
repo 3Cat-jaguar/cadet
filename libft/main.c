@@ -6,19 +6,21 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/04 16:50:00 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/05 16:44:04 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/06 13:02:19 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdio.h>
 
-int		strlcpy(char *dst, const char *src, int size);
+int		ft_strlcpy(char *dst, const char *src, int size);
 
 int		main(void)
 {
 	const char	*src;
 	char		dst[1000];
+	char		dst2[1000];
+	int			i;
 	
 	dst[0] = 'h';
 	dst[1] = 'i';
@@ -43,9 +45,18 @@ int		main(void)
 	dst[20] = 'o';
 	dst[21] = 'u';
 	dst[22] = '!';
-	dst[23] = '\n';
-	s = "hello world";
-	printf("%lu\n", strlen(s));
-	printf("%lu\n", ft_strlen(s));
+	dst[23] = '\0';
+	src = "hello world";
+	i = 0;
+	while (dst[i])
+	{
+		dst2[i] = dst[i];
+		i++;
+	}
+	dst2[i] = '\0';
+//	printf("%lu\n", strlen(src));
+//	printf("%d\n", ft_strlen(s));
+	printf("%lu\n", strlcpy(dst, src, 4));
+	printf("%d\n", ft_strlcpy(dst2, src, 4));
 	return (0);
 }
