@@ -3,7 +3,8 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
 SRCS = ft_strlen.c\
 	   ft_strlcpy.c\
-	   ft_strlcat.c
+	   ft_strlcat.c\
+	   ft_isalpha.c
 
 OBJECTS = $(SRCS:.c=.o)
 
