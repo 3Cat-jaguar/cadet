@@ -6,11 +6,10 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/04 16:50:00 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/07 10:24:11 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/07 11:28:26 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <bsd/string.h>
 #include <string.h>
 #include <stdio.h>
 
@@ -22,6 +21,7 @@ int		main(void)
 	char		dst[1000];
 	char		dst2[1000];
 	int			i;
+	int			size;
 	
 	dst[0] = 'h';
 	dst[1] = 'e';
@@ -55,11 +55,16 @@ int		main(void)
 		i++;
 	}
 	dst2[i] = '\0';
+	size = 8;
 //	printf("%lu\n", strlen(src));
 //	printf("%d\n", ft_strlen(s));
 //	printf("%lu\n", strlcpy(dst, src, 0));
 //	printf("%d\n", ft_strlcpy(dst2, src, 4));
-	printf("%lu\n", strlcat(dst, src, 3));
-	printf("%s\n", dst);
+	printf("dst_len = %lu , src_len = %lu , size = %d \n", strlen(dst), strlen(src), size);
+	printf("strlcat : %lu\n", strlcat(dst, src, (size_t)size));
+	printf("new_dst : %s\n", dst);
+	printf("dst2_len = %lu , src_len = %lu , size = %d \n", strlen(dst2), strlen(src), size);
+	printf("ft_strlcat : %d\n", ft_strlcat(dst2, src, size));
+	printf("new_dst2 : %s\n", dst2);
 	return (0);
 }
