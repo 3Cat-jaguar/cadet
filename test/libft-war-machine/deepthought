@@ -3,7 +3,7 @@ $> hostname; uname -msr
 c1r1s1.42seoul.kr
 Darwin 18.7.0 x86_64
 $> date
-Wed Oct  7 09:43:58 KST 2020
+Wed Oct  7 10:11:44 KST 2020
 $> gcc --version
 Apple LLVM version 10.0.1 (clang-1001.0.46.4)
 Target: x86_64-apple-darwin18.7.0
@@ -26,7 +26,7 @@ gcc -Wall -Wextra -Werror -c ft_strlen.c ft_strlcpy.c
 ar rc libft.a ft_strlen.o ft_strlcpy.o
 
 $> ls -la libft.a
--rw-r--r--  1 ylee  2020_seoul  1760 Oct  7 09:43 /Users/ylee/test/libft-war-machine/dirlibft/libft.a
+-rw-r--r--  1 ylee  2020_seoul  1808 Oct  7 10:11 /Users/ylee/cadet/test/libft-war-machine/dirlibft/libft.a
 
 = Part1_functions ==============================================================
 

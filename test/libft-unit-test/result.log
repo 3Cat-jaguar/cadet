@@ -16,7 +16,7 @@ ft_tolower:    [MISSING]
 ft_strchr:     [MISSING]
 ft_strrchr:    [MISSING]
 ft_strncmp:    [MISSING]
-ft_strlcpy:    [OK] [OK] [OK] [OK] [OK] [OK] {not protected}
+ft_strlcpy:    [OK] [OK] [OK] [OK] [OK] [OK] {protected}
 ft_strlcat:    [MISSING]
 ft_strnstr:    [MISSING]
 ft_atoi:       [MISSING]
