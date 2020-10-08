@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/04 16:50:00 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/08 10:34:41 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/08 15:29:01 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,41 @@
 
 int		main(void)
 {
+	char ptr[1000] = {0};
+	char ptr2[1000] = {0};
+	int		value = 3;
+	size_t	num = 10;
+	int		i;
+
+	memset((void *)&ptr[0], value, num);
+	i = 0;
+	while (ptr[i] != 0)
+	{
+		printf("%d\n", ptr[i]);
+		i++;
+	}
+	printf("%d\n", i);
+
+	ft_memset((void *)&ptr2[0], value, num);
+	i = 0;
+	while (ptr2[i] != 0)
+	{
+		printf("%d\n", ptr2[i]);
+		i++;
+	}
+	printf("%d\n", i);
+
+/*
+	printf("%s\n",strchr("īœ˙ˀ˘¯ˇ¸¯.œ«‘––™ª•¡¶¢˜ˀ",L'–'));
+	printf("%s\n",ft_strchr("īœ˙ˀ˘¯ˇ¸¯.œ«‘––™ª•¡¶¢˜ˀ",L'–'));
+
 	printf("%d\n", atoi("-2147483648"));
 	printf("%d\n", ft_atoi("-2147483648"));
 	printf("%d\n", atoi("–9223372036854775810"));
 	printf("%d\n", ft_atoi("–9223372036854775810"));
 	printf("%d\n", atoi("9223372036854775810"));
 	printf("%d\n", ft_atoi("9223372036854775810"));
-/*
+
 	printf("%d\n",isalpha(50));
 	printf("%d\n",ft_isalpha(50));
 	printf("%d\n",isalpha('A'));
