@@ -6,13 +6,13 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 14:53:24 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/07 16:32:50 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/08 09:25:16 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalpha(int i)
+int		ft_isalpha(int c)
 {
-	if ((i >= 'A' && i <= 'Z') || (i >= 'a' && i <= 'z'))
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
 		return (1);
 	else
 		return (0);

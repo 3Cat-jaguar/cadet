@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/04 16:50:00 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/07 15:42:26 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/08 10:34:41 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,17 @@
 #include <string.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 int		main(void)
 {
+	printf("%d\n", atoi("-2147483648"));
+	printf("%d\n", ft_atoi("-2147483648"));
+	printf("%d\n", atoi("–9223372036854775810"));
+	printf("%d\n", ft_atoi("–9223372036854775810"));
+	printf("%d\n", atoi("9223372036854775810"));
+	printf("%d\n", ft_atoi("9223372036854775810"));
+/*
 	printf("%d\n",isalpha(50));
 	printf("%d\n",ft_isalpha(50));
 	printf("%d\n",isalpha('A'));
@@ -32,7 +40,6 @@ int		main(void)
 	printf("%d\n",isalpha('g'));
 	printf("%d\n",ft_isalpha('g'));
 
-/*
 	const char	*src;
 	char		dst[1000];
 	char		dst2[1000];
