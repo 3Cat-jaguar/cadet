@@ -1,6 +1,6 @@
 ft_memset:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
-ft_bzero:      [MISSING]
-ft_memcpy:     [MISSING]
+ft_bzero:      [OK] [OK] [OK] [OK] 
+ft_memcpy:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_memccpy:    [MISSING]
 ft_memmove:    [MISSING]
 ft_memchr:     [MISSING]
