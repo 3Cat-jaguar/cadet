@@ -12,10 +12,11 @@ SRCS = ft_strlen.c\
 	   ft_toupper.c\
 	   ft_tolower.c\
 	   ft_atoi.c\
-	   ft_strchr.c\
 	   ft_memset.c\
 	   ft_bzero.c\
-	   ft_memcpy.c
+	   ft_memcpy.c\
+	   ft_strchr.c\
+	   ft_strrchr.c
 
 OBJECTS = $(SRCS:.c=.o)
 

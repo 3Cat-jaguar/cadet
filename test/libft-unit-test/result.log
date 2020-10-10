@@ -13,64 +13,8 @@ ft_isascii:    [OK]
 ft_isprint:    [OK] 
 ft_toupper:    [OK] 
 ft_tolower:    [OK] 
-ft_strchr:     [OK] [OK] [OK] [FAILED] [FAILED] [FAILED] [OK] [FAILED] [OK] [OK] 
-[fail]: your strchr does not work with not found char
-Test code:
-	char *src = "the cake is a lie !\0I'm hidden lol\r\n";
-	char *d1 = strchr(src, 'x');
-	char *d2 = ft_strchr(src, 'x');
-
-	if (d1 == d2)
-		exit(TEST_SUCCESS);
-	exit(TEST_FAILED);
-
-Diffs:
-      strchr: |(null)|
-   ft_strchr: |(null)|
-
-[fail]: your strchr does not work with unicode
-Test code:
-	char *src = "īœ˙ˀ˘¯ˇ¸¯.œ«‘––™ª•¡¶¢˜ˀ";
-	char *d1 = strchr(src, L'–');
-	char *d2 = ft_strchr(src, L'–');
-
-	if (d1 == d2)
-		exit(TEST_SUCCESS);
-	exit(TEST_FAILED);
-
-Diffs:
-      strchr: |(null)|
-   ft_strchr: |(null)|
-
-[fail]: your strchr find chars after \0
-Test code:
-	char *src = "AA\0B";
-	char *d1 = strchr(src, 'B');
-	char *d2 = ft_strchr(src, 'B');
-
-	if (d1 == d2)
-		exit(TEST_SUCCESS);
-	exit(TEST_FAILED);
-
-Diffs:
-      strchr: |(null)|
-   ft_strchr: |(null)|
-
-[fail]: your strchr does not work with \0
-Test code:
-	char *src = "\0";
-	char *d1 = strchr(src, 'a');
-	char *d2 = ft_strchr(src, 'a');
-
-	if (d1 == d2)
-		exit(TEST_SUCCESS);
-	exit(TEST_FAILED);
-
-Diffs:
-      strchr: |(null)|
-   ft_strchr: |(null)|
-
-ft_strrchr:    [MISSING]
+ft_strchr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strrchr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strncmp:    [MISSING]
 ft_strlcpy:    [OK] [OK] [OK] [OK] [OK] [OK] {protected}
 ft_strlcat:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 

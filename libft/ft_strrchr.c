@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/10 14:56:19 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/10 15:39:32 by ylee             ###   ########.fr       */
+/*   Created: 2020/10/10 15:18:33 by ylee              #+#    #+#             */
+/*   Updated: 2020/10/10 15:29:45 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strrchr(const char *str, int c)
 {
-	int				i;
+	int		i;
 
 	i = 0;
 	while (str[i])
+		i++;
+	while (i >= 0)
 	{
 		if (str[i] == c)
 			return ((char *)&str[i]);
-		i++;
+		i--;
 	}
-	if (str[i] == c)
-		return ((char *)&str[i]);
-	else
-		return (0);
+	return (0);
 }

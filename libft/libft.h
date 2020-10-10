@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/05 15:34:25 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/08 16:21:56 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/10 15:18:25 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ int		ft_isprint(int p);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_atoi(const char *str);
-char	*ft_strchr(const char *str, int c);
 void	*ft_memset(void *ptr, int value, int num);
 void	ft_bzero(void *s, int n);
 void	*ft_memcpy(void *dst, const void *src, int n);
+char	*ft_strchr(const char *str, int c);
+char	*ft_strrchr(const char *str, int c);
 
 #endif

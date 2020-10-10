@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/04 16:50:00 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/08 16:48:51 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/10 15:37:53 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 int		main(void)
 {
 
-	printf("%p\n",memcpy(NULL, NULL, 3));
+	printf("%s\n",strchr("hello", 's'));
+	printf("%s\n",ft_strchr("hello", 's'));
 
 	
 /*	
