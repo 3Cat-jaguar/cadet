@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/04 16:50:00 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/10 15:37:53 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/10 15:57:25 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,15 @@
 
 int		main(void)
 {
+	char str[] = "memmove can be very useful......";
 
+	ft_memmove(str + 20, str + 15, 11);
+	printf("%s\n", str);
+
+/*
 	printf("%s\n",strchr("hello", 's'));
 	printf("%s\n",ft_strchr("hello", 's'));
 
-	
-/*	
 	char ptr[1000] = {0};
 	char ptr2[1000] = {0};
 	int		value = 3;

@@ -16,7 +16,8 @@ SRCS = ft_strlen.c\
 	   ft_bzero.c\
 	   ft_memcpy.c\
 	   ft_strchr.c\
-	   ft_strrchr.c
+	   ft_strrchr.c\
+	   ft_memmove.c
 
 OBJECTS = $(SRCS:.c=.o)
 

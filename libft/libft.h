@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/05 15:34:25 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/10 15:18:25 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/10 15:47:17 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ void	ft_bzero(void *s, int n);
 void	*ft_memcpy(void *dst, const void *src, int n);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
+void	*ft_memmove(void *dst, const void *src, int n);
 
 #endif
