@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/04 16:50:00 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/10 15:57:25 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/11 22:44:05 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,22 @@
 
 int		main(void)
 {
+	char	*s1 = "\xff";
+	char	*s2 = "\0";
+	printf("%d\n", strncmp(s1, s2, 6));
+	printf("%d\n", ft_strncmp(s1, s2, 6));
+
+	s1 = "\250";
+	s2 = "\0";
+	printf("%d\n", strncmp(s1, s2, 6));
+	printf("%d\n", ft_strncmp(s1, s2, 6));
+
+/*
 	char str[] = "memmove can be very useful......";
 
 	ft_memmove(str + 20, str + 15, 11);
 	printf("%s\n", str);
 
-/*
 	printf("%s\n",strchr("hello", 's'));
 	printf("%s\n",ft_strchr("hello", 's'));
 
