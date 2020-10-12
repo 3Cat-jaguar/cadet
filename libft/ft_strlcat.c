@@ -6,15 +6,17 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/07 11:07:51 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/07 13:17:46 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/12 13:45:55 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlcat(char *dst, const char *src, int size)
+#include <stddef.h>
+
+int		ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int	i;
-	int	dst_len;
-	int	src_len;
+	size_t	i;
+	size_t	dst_len;
+	size_t	src_len;
 
 	dst_len = 0;
 	src_len = 0;
@@ -25,7 +27,7 @@ int		ft_strlcat(char *dst, const char *src, int size)
 	if (dst_len > size)
 		return (src_len + size);
 	i = dst_len;
-	while (src[i - dst_len] && i < (size - 1))
+	while (src[i - dst_len] && (i + 1) < size)
 	{
 		dst[i] = src[i - dst_len];
 		i++;

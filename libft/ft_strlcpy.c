@@ -6,18 +6,20 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/06 11:54:29 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/07 10:10:57 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/12 14:40:56 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlcpy(char *dst, const char *src, int size)
+#include <stddef.h>
+
+int	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	int i;
+	size_t	i;
 
 	i = 0;
 	if (!dst || !src)
 		return (0);
-	while (src[i] && i < (size - 1))
+	while (src[i] && (i + 1) < size)
 	{
 		dst[i] = src[i];
 		i++;

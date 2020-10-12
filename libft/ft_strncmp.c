@@ -6,15 +6,15 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 22:03:52 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/11 22:54:50 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/12 13:46:42 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stddef.h>
 
-int		ft_strncmp(const char *s1, const char *s2, int n)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int				i;
+	size_t			i;
 	unsigned char	c1;
 	unsigned char	c2;
 

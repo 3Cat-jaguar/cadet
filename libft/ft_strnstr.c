@@ -6,9 +6,11 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 18:35:41 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/11 19:37:49 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/12 13:46:11 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stddef.h>
 
 int		cmp(const char *s1, const char *s2)
 {
@@ -27,9 +29,9 @@ int		cmp(const char *s1, const char *s2)
 		return (0);
 }
 
-char	*ft_strnstr(const char *s1, const char *s2, int n)
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	int		idx1;
+	size_t	idx1;
 	int		result;
 	char	*find;
 

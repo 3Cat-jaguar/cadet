@@ -6,11 +6,13 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/10 15:47:23 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/10 16:31:50 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/12 14:48:03 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dst, const void *src, int n)
+#include <stddef.h>
+
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	int			i;
 	char		*d;
@@ -20,10 +22,10 @@ void	*ft_memmove(void *dst, const void *src, int n)
 		return (0);
 	d = dst;
 	s = src;
-	if (d < s)
+	if (dst < src)
 	{
 		i = 0;
-		while (i < n)
+		while (i < (int)len)
 		{
 			*(d + i) = *(s + i);
 			i++;
@@ -31,8 +33,9 @@ void	*ft_memmove(void *dst, const void *src, int n)
 	}
 	else if (d > s)
 	{
-		while (--n >= 0)
-			*(d + n) = *(s + n);
+		i = (int)len;
+		while (--i >= 0)
+			*(d + i) = *(s + i);
 	}
 	return (dst);
 }

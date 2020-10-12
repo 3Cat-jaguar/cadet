@@ -6,13 +6,15 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 18:23:10 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/11 18:27:38 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/12 13:45:36 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_memcmp(const void *str1, const void *str2, int n)
+#include <stddef.h>
+
+int		ft_memcmp(const void *str1, const void *str2, size_t n)
 {
-	int					i;
+	size_t				i;
 	const unsigned char	*s1;
 	const unsigned char	*s2;
 

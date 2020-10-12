@@ -6,13 +6,15 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 18:01:35 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/11 18:11:13 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/12 13:45:04 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memccpy(void *dst, const void *src, int c, int n)
+#include <stddef.h>
+
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	int					i;
+	size_t				i;
 	unsigned char		*d;
 	const unsigned char	*s;
 	unsigned char		uc;

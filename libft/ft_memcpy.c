@@ -6,15 +6,17 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 16:15:13 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/10 15:52:49 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/12 13:44:47 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void *dst, const void *src, int n)
+#include <stddef.h>
+
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	char		*d;
 	const char	*s;
-	int			i;
+	size_t		i;
 
 	if (!dst && !src)
 		return (0);

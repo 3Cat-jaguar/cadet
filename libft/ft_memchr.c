@@ -6,13 +6,15 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 18:14:59 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/11 18:18:27 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/12 13:45:26 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memchr(const void *str, int c, int n)
+#include <stddef.h>
+
+void	*ft_memchr(const void *str, int c, size_t n)
 {
-	int					i;
+	size_t				i;
 	unsigned char		uc;
 	const unsigned char	*s;
 

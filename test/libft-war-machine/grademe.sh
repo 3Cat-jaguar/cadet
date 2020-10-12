@@ -6,7 +6,7 @@
 #    By: jtoty <jtoty@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/23 18:26:01 by jtoty             #+#    #+#              #
-#    Updated: 2019/11/14 02:08:20 by mle-floc         ###   ########.fr        #
+#    Updated: 2020/10/12 16:51:07 by ylee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -310,5 +310,4 @@ printf "A deepthought file has been generated in ${COLOR_DEEPTHOUGHT_PATH}${PATH
 make --no-print-directory -C ${PATH_LIBFT} fclean > /dev/null
 
 # nuke_it_all
-find ${PATH_TEST} -name 'user_output_test*' -delete
 rm -rf ${PATH_TEST}/dirlibft/

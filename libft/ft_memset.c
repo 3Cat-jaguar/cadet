@@ -6,21 +6,23 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/08 15:10:15 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/08 15:31:32 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/12 13:44:09 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *ptr, int value, int num)
+#include <stddef.h>
+
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int		i;
+	size_t	i;
 	char	*str;
 
 	i = 0;
-	str = ptr;
-	while (i < num)
+	str = b;
+	while (i < len)
 	{
-		*(str + i) = value;
+		*(str + i) = c;
 		i++;
 	}
-	return ((void *)ptr);
+	return ((void *)b);
 }
