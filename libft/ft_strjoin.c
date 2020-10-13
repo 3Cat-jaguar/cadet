@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/08 15:10:15 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/13 10:04:04 by ylee             ###   ########.fr       */
+/*   Created: 2020/10/13 09:44:24 by ylee              #+#    #+#             */
+/*   Updated: 2020/10/13 09:47:41 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
-void	*ft_memset(void *str, int c, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
-	char	*s;
+	int		i;
+	char	*result;
 
-	i = 0;
-	s = str;
-	while (i < len)
+	if (!s1 && !s2)
+		return (0);
+	else if (!s1)
 	{
-		*(s + i) = c;
-		i++;
+		i = ft_strlen(s2) + 1;
+		result = (char *)malloc(sizeof(char) * i);
+		while
 	}
-	return ((void *)str);
+
 }

@@ -3,7 +3,7 @@ $> hostname; uname -msr
 c1r1s1.42seoul.kr
 Darwin 18.7.0 x86_64
 $> date
-Mon Oct 12 16:24:55 KST 2020
+Tue Oct 13 09:35:27 KST 2020
 $> gcc --version
 Apple LLVM version 10.0.1 (clang-1001.0.46.4)
 Target: x86_64-apple-darwin18.7.0
@@ -26,7 +26,7 @@ gcc -Wall -Wextra -Werror -c ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_isalpha.c 
 ar rc libft.a ft_strlen.o ft_strlcpy.o ft_strlcat.o ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_toupper.o ft_tolower.o ft_atoi.o ft_memset.o ft_bzero.o ft_memcpy.o ft_strchr.o ft_strrchr.o ft_memmove.o ft_memccpy.o ft_memchr.o ft_memcmp.o ft_strnstr.o ft_strncmp.o ft_calloc.o ft_strdup.o ft_substr.o
 
 $> ls -la libft.a
--rw-r--r--  1 ylee  2020_seoul  22472 Oct 12 16:24 /Users/ylee/cadet/test/Libftest/tmp_tests_dir/libft.a
+-rw-r--r--  1 ylee  2020_seoul  22472 Oct 13 09:35 /Users/ylee/cadet/test/Libftest/tmp_tests_dir/libft.a
 
 = Part1_functions ==============================================================
 
