@@ -6,17 +6,17 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/04 16:47:40 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/04 17:07:43 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/13 13:28:32 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(const char *s)
+#include <stddef.h>
+
+size_t	ft_strlen(const char *s)
 {
-	int			i;
-	const char	*str;
+	size_t		i;
 
 	i = 0;
-	str = s;
 	while (s[i])
 		i++;
 	return (i);

@@ -6,17 +6,18 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/05 15:34:25 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/13 09:51:45 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/13 13:26:02 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stddef.h>
+# include <stdlib.h>
 
-int		ft_strlen(const char *s);
-int		ft_strlcpy(char *dst, const char *src, size_t size);
-int		ft_strlcat(char *dst, const char *src, size_t size);
+size_t	ft_strlen(const char *s);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
 int		ft_isalpha(int c);
 int		ft_isdigit(int d);
 int		ft_isalnum(int a);
