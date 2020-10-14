@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/04 16:50:00 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/14 14:14:57 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/14 15:52:01 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 
 int		main(void)
 {
+	printf("%s\n", ft_itoa(10));
+
+
+/*
 	char *s1 = "   \t  \n\n \t\t  \n\n\nHello \t  Please\n Trim me !\n   \n \n \t\t\n  ";
     char *s2 = "Hello \t  Please\n Trim me !";
 	char *ret = ft_strtrim(s1, " \n\t");
@@ -25,8 +29,6 @@ int		main(void)
 	printf("---\n");
 	printf("%s\n", ret);	
 
-
-/*
 	char	*s1 = "\xff";
 	char	*s2 = "\0";
 	printf("%d\n", strncmp(s1, s2, 6));
