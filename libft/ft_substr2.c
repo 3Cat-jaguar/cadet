@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/13 09:44:24 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/14 09:29:33 by ylee             ###   ########.fr       */
+/*   Created: 2020/10/12 11:59:03 by ylee              #+#    #+#             */
+/*   Updated: 2020/10/12 16:24:39 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
-	int		len1;
-	int		len2;
-	char	*result;
+	unsigned int	i;
+	char			*result;
 
-	if (!s1 || !s2)
+	i = 0;
+	if (!s)
 		return (0);
-	else if (!s1)
-		return ((char *)ft_strdup(s2));
-	else if (!s2)
-		return ((char *)ft_strdup(s1));
-	len1 = ft_strlen(s1);
-	len2 = ft_strlen(s2);
-	result = (char *)ft_calloc(len1 + len2 + 1, sizeof(char));
+	while (i < ((unsigned int)len + start) && s[i])
+		i++;
+	if (i <= start)
+		i = 0;
+	else
+		i = i - start;
+	result = (char *)malloc(sizeof(char) * (i + 1));
 	if (!result)
 		return (0);
-	ft_strlcpy(result, s1, len1 + 1);
-	ft_strlcat(result, s2, len1 + len2 + 1);
+	result[i] = '\0';
+	if (i == 0)
+		return (result);
+	i = 0;
+	while (i < (unsigned int)len && s[start + i])
+	{
+		result[i] = s[start + i];
+		i++;
+	}
 	return (result);
 }

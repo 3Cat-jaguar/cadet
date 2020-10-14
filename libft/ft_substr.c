@@ -6,37 +6,32 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/12 11:59:03 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/12 16:24:39 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/14 10:03:09 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
-	unsigned int	i;
+	unsigned int	s_len;
 	char			*result;
 
-	i = 0;
 	if (!s)
 		return (0);
-	while (i < ((unsigned int)len + start) && s[i])
-		i++;
-	if (i <= start)
-		i = 0;
+	s_len = (unsigned int)ft_strlen(s);
+	if (s_len <= start)
+		result = (char *)ft_strdup("");
+	else if (s_len < (start + (unsigned int)len))
+		result = (char *)ft_strdup(&s[start]);
 	else
-		i = i - start;
-	result = (char *)malloc(sizeof(char) * (i + 1));
+	{
+		result = (char *)ft_calloc(len + 1, sizeof(char));
+		if (!result)
+			return (0);
+		ft_strlcpy(result, &s[start], len + 1);
+	}
 	if (!result)
 		return (0);
-	result[i] = '\0';
-	if (i == 0)
-		return (result);
-	i = 0;
-	while (i < (unsigned int)len && s[start + i])
-	{
-		result[i] = s[start + i];
-		i++;
-	}
 	return (result);
 }
