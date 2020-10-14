@@ -24,24 +24,7 @@ ft_calloc:     [OK] [OK] [OK] [OK] [OK]
 ft_strdup:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_substr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}[OK] 
 ft_strjoin:    [OK] [OK] [OK] [OK] [OK] {protected}
-ft_strtrim:    [OK] [OK] [OK] [OK] [OK] [KO] [OK] [OK] [OK] {protected}
-[KO]: your strtrim did not allocate the good size so the \0 test may be false
-Test code:
-	char *s1 = "\t   \n\n\n  \n\n\t    Hello \t  Please\n Trim me !\t\t\t\n  \t\t\t\t  ";
-	char *s2 = "Hello \t  Please\n Trim me !";
-	int r_size = strlen(s2);
-	int size;
-
-	ft_strtrim(s1, " \n\t");
-	size = get_last_malloc_size();
-	if (size == r_size + 1)
-		exit(TEST_SUCCESS);
-	exit(TEST_KO);
-
-Diffs:
-     strtrim: |27|
-  ft_strtrim: |55|
-
+ft_strtrim:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
 ft_split:      [MISSING]
 ft_itoa:       [MISSING]
 ft_strmapi:    [MISSING]

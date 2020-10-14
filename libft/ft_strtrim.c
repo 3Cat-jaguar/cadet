@@ -6,56 +6,47 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 10:11:27 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/14 11:54:50 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/14 14:39:15 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*trim(char *str, const char *set)
+int		check_c_in_set(char c, char const *set)
 {
-	int		check;
+	int		i;
 
-	check = 0;
-	while (check == 0)
+	i = 0;
+	while (set[i])
 	{
-		check = 1;
-		idx_set = 0;
-		while (set[idx_set])
-		{
-			if(str[0] == set[idx_set])
-			{
-				ft_memmove(str, str + 1, ft_strlen(str));
-				check = 0;
-			}
-			if (str[ft_strlen(str) - 1] == set[idx_set])
-			{
-				str[ft_strlen(str) - 1] = '\0';
-				check = 0;
-			}
-			idx_set++;
-		}
+		if (c == set[i])
+			return (0);
+		i++;
 	}
-	return (str);
+	return (1);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		check;
-	int		idx_set;
+	int		set_len;
+	int		str_len;
+	int		start;
 	char	*str;
 	char	*result;
 
+	set_len = ft_strlen(set);
 	if (!s1)
 		return (0);
-	else if (!set || ft_strlen(set) == 0)
+	if (!set || set_len == 0)
 		return ((char *)ft_strdup(s1));
-	if (!(str = (char *)ft_strdup(s1)))
-		return (0);
-	str = trim(str, set);
-	result = (char *)ft_strdup(str);
-	if(!result)
-		return (0);
-
-	return (str);
+	start = 0;
+	while (check_c_in_set(s1[start], set) == 0)
+		start++;
+	str = (char *)&s1[start];
+	str_len = ft_strlen(str);
+	while (str_len > 0 && check_c_in_set(str[str_len - 1], set) == 0)
+		str_len--;
+	result = (char *)ft_calloc(str_len + 1, sizeof(char));
+	ft_strlcpy(result, str, str_len + 1);
+	return ((char *)result);
 }
