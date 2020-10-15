@@ -28,10 +28,138 @@ ft_strtrim:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
 ft_split:      [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
 ft_itoa:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strmapi:    [OK] [OK] [OK] [OK] [OK] {protected}
-ft_putchar_fd: [MISSING]
-ft_putstr_fd:  [MISSING]
-ft_putendl_fd: [MISSING]
-ft_putnbr_fd:  [MISSING]
+ft_putchar_fd: [OK] [OK] [KO] 
+[KO]: your putchar_fd does not work with unicode
+Test code:
+	char buff[10];
+	char buff2[10];
+	int c = L'ø';
+	int len = 0;
+
+	putwchart(c, &len, buff2);
+	buff2[len] = 0;
+	fd_to_buffer(2);
+	ft_putchar_fd(c, 2);
+	write(2, "", 1);
+	get_fd_buffer(2, buff, 10);
+	if (!strcmp(buff, buff2))
+		exit(TEST_SUCCESS);
+	exit(TEST_KO);
+
+Diffs:
+  putchar_fd: |�|
+ft_putchar_fd: |ø|
+
+ft_putstr_fd:  [OK] [OK] {protected}
+ft_putendl_fd: [OK] [OK] {protected}
+ft_putnbr_fd:  [OK] [FAILED] [FAILED] [FAILED] [FAILED] 
+[fail]: your putnbr_fd does not work with int max
+Test code:
+	int i = 2147483647;
+	char buff[0xF0];
+
+	fd_to_buffer(2);
+	ft_putnbr_fd(i, 2);
+	write(2, "", 1);
+	get_fd_buffer(2, buff, 0xF0);
+	if (atoi(buff) == i)
+		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);
+
+Diffs:
+   putnbr_fd: |2147483647|
+ft_putnbr_fd: |0|
+
+[fail]: your putnbr_fd does not work with int min
+Test code:
+	int i = (-2147483647 -1);
+	char buff[0xF0];
+
+	fd_to_buffer(2);
+	ft_putnbr_fd(i, 2);
+	write(2, "", 1);
+	get_fd_buffer(2, buff, 0xF0);
+	if (atoi(buff) == i)
+		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);
+
+Diffs:
+   putnbr_fd: |-2147483648|
+ft_putnbr_fd: |0|
+
+[fail]: your putnbr_fd does not work with random numbers
+Test code:
+	int nbr;
+	char buff[0xF0];
+
+	srand(clock());
+	nbr = rand();
+	fd_to_buffer(2);
+	ft_putnbr_fd(nbr, 2);
+	write(2, "", 1);
+	get_fd_buffer(2, buff, 0xF0);
+	int nb = atoi(buff);
+	if (nbr != nb)
+	{
+		exit(TEST_FAILED);
+	}
+	;
+	srand(clock());
+	nbr = rand();
+	fd_to_buffer(2);
+	ft_putnbr_fd(nbr, 2);
+	write(2, "", 1);
+	get_fd_buffer(2, buff, 0xF0);
+	if (nbr != atoi(buff))
+	{
+		exit(TEST_FAILED);
+	}
+	;
+	srand(clock());
+	nbr = rand();
+	fd_to_buffer(2);
+	ft_putnbr_fd(nbr, 2);
+	write(2, "", 1);
+	get_fd_buffer(2, buff, 0xF0);
+	if (nbr != atoi(buff))
+	{
+		exit(TEST_FAILED);
+	}
+	;
+	srand(clock());
+	nbr = rand();
+	fd_to_buffer(2);
+	ft_putnbr_fd(nbr, 2);
+	write(2, "", 1);
+	get_fd_buffer(2, buff, 0xF0);
+	if (nbr != atoi(buff))
+	{
+		exit(TEST_FAILED);
+	}
+	;
+	exit(TEST_SUCCESS);
+
+Diffs:
+   putnbr_fd: |3395014|
+ft_putnbr_fd: |0|
+
+[fail]: your putnbr_fd allocate memory, wtf ???
+Test code:
+	int i = (-2147483647 -1);
+	char buff[0xF0];
+
+	fd_to_buffer(2);
+	ft_putnbr_fd(i, 2);
+	write(2, "", 1);
+	get_fd_buffer(2, buff, 0xF0);
+	if (atoi(buff) == i)
+		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);
+
+Diffs:
+   putnbr_fd: |-2147483648|
+ft_putnbr_fd: |0|
+
 ft_lstnew:     [MISSING]
 ft_lstadd_front: [MISSING]
 ft_lstsize:    [MISSING]

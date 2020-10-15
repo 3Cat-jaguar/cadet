@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 09:41:48 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/15 13:53:21 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/15 14:28:07 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ char	**free_all(char **result, int cnt)
 		cnt--;
 	}
 	free(result);
+	result = NULL;
 	return (result);
 }
 
