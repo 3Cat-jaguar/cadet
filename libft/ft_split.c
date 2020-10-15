@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 09:41:48 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/15 12:01:46 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/15 13:53:21 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,37 @@ int		count_word(char const *s, char c)
 	return (cnt);
 }
 
-char	*put_word(char const *s, char c, int *str_len)
+char	*put_word(char const **s, char c, int *str_len)
 {
 	char	*str;
 
-	while (*(s + *str_len) && *(s + *str_len) != c)
-		*str_len++;
+	*str_len = 0;
+	while (*(*s + *str_len) && *(*s + *str_len) != c)
+		*str_len = *str_len + 1;
 	str = (char *)ft_calloc(*str_len + 1, sizeof(char));
+	if (!str)
+		return (0);
 	ft_strlcpy(str, *s, *str_len + 1);
+	*s = *s + *str_len;
 	return (str);
+}
+
+char	**free_all(char **result, int cnt)
+{
+	while (cnt >= 0)
+	{
+		free(result[cnt]);
+		cnt--;
+	}
+	free(result);
+	return (result);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
 	int		cnt;
-	int		*str_len;
+	int		str_len;
 
 	if (!s)
 		return (0);
@@ -63,10 +78,11 @@ char	**ft_split(char const *s, char c)
 			s++;
 		if (*s && *s != c)
 		{
-			*str_len = 0;
-			result[cnt] = put_word(s, c, str_len);
-			s = s + *str_len;
-			cnt++;
+			if (!(result[cnt++] = put_word(&s, c, &str_len)))
+			{
+				free_all(result, --cnt);
+				return (0);
+			}
 		}
 	}
 	return (result);
