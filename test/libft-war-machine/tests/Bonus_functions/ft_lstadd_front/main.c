@@ -6,7 +6,7 @@
 /*   By: jtoty <jtoty@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 15:15:25 by jtoty             #+#    #+#             */
-/*   Updated: 2019/10/09 12:19:39 by lmartin          ###   ########.fr       */
+/*   Updated: 2020/10/16 14:16:19 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_print_result(t_list *elem)
 	int		len;
 
 	len = 0;
-	while (((char *)elem->content)[len])
+	while ((char *)elem->content[len])
 		len++;
 	write(1, elem->content, len);
 	write(1, "\n", 1);

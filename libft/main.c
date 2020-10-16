@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/04 16:50:00 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/15 15:09:55 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/16 13:55:31 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,31 @@
 
 int		main(void)
 {
+	t_list *l = ft_lstnew((void *)"abc");
+	t_list *n = ft_lstnew((void *)"efg");
+	ft_lstadd_front(&l, n);
+	if (l == n)
+	{
+		printf("ok\n");
+		printf("%s\n", (char *)(l->next->content));
+	}
+	else
+		printf("error\n");
+
+/*
+
 	int     c = L'ø';
 
 	write(1, &(char)c, 1);	
 
-/*
+
+
 	ft_split("abc,def,ghi,,,j,,",',');
 
+	
+	
 	printf("%s\n", ft_itoa(10));
+
 
 	char *s1 = "   \t  \n\n \t\t  \n\n\nHello \t  Please\n Trim me !\n   \n \n \t\t\n  ";
     char *s2 = "Hello \t  Please\n Trim me !";

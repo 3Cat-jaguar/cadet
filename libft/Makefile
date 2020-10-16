@@ -37,7 +37,12 @@ SRCS = ft_strlen.c\
 	   ft_putnbr_fd.c
 
 
-B_SRCS = ft_lstnew.c
+B_SRCS = ft_lstnew.c\
+		 ft_lstadd_front.c\
+		 ft_lstsize.c\
+		 ft_lstlast.c\
+		 ft_lstadd_back.c\
+		 ft_lstdelone.c
 
 OBJECTS = $(SRCS:.c=.o)
 

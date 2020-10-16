@@ -6,7 +6,7 @@
 #    By: alelievr <alelievr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created  2015/04/04 19:22:36 by alelievr          #+#    #+#              #
-#    Updated: 2020/10/10 14:51:37 by ylee             ###   ########.fr        #
+#    Updated: 2020/10/16 15:10:51 by ylee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -242,6 +242,7 @@ f: libclean all
 	@rm -rf $(ASSETDIR)/$(ANAME)
 	@echo "\033[38;5;93mRUNNING TESTS:"
 	@./$(WRAPNAME) ${SPEED}
+	@rm -f $(LIBFTDIR)/*.o
 
 b: libclean all
 	@rm -rf $(ASSETDIR)/$(ANAME)
