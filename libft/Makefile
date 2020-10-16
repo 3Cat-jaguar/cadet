@@ -37,18 +37,28 @@ SRCS = ft_strlen.c\
 	   ft_putnbr_fd.c
 
 
+B_SRCS = ft_lstnew.c
+
 OBJECTS = $(SRCS:.c=.o)
+
+B_OBJS = $(B_SRCS:.c=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJECTS)
 	ar rc $@ $^
 
+bonus : $(OBJECTS) $(B_OBJS)
+	ar rc $(NAME) $^
+
 $(OBJECTS): $(SRCS)
 	$(CC) $(CFLAGS) -c $^
 
+$(B_OBJS) : $(B_SRCS)
+	$(CC) $(CFLAGS) -c $^
+
 clean : 
-	rm -f $(OBJECTS)
+	rm -f $(OBJECTS) $(B_OBJS)
 
 fclean : clean
 	rm -f $(NAME)
