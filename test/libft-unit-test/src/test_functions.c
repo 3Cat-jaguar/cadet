@@ -6,7 +6,7 @@
 /*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/17 17:42:18 by alelievr          #+#    #+#             */
-/*   Updated: 2020/10/19 12:02:13 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/19 13:34:53 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -7650,13 +7650,14 @@ void			test_ft_lstclear_free(void *ptr) {
 			ft_lstclear(&l, lstdelone_f);
 			write(STDERR_FILENO, "", 1);
 
-			if (!l) {
+			if (!l)
+			{
 				free(tmp);
 				exit(TEST_SUCCESS);
 			}
 			SET_DIFF_PTR(NULL, l);
 			exit(TEST_FAILED);
-			);
+	);
 	VOID_STDERR;
 }
 

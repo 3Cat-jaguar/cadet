@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/19 11:20:37 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/19 13:55:07 by ylee             ###   ########.fr       */
+/*   Created: 2020/10/19 14:05:30 by ylee              #+#    #+#             */
+/*   Updated: 2020/10/19 14:07:02 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*nxt;
 	t_list	*now;
 
-	if (!lst || !del)
-		return ;
-	nxt = *lst;
-	*lst = NULL;
-	while (nxt)
+	now = lst;
+	while (now)
 	{
-		now = nxt;
-		nxt = now->next;
-		del(now->content);
-		now->content = NULL;
-		now->next = NULL;
-		free(now);
-		now = NULL;
+		f(now->content);
+		now = now->next;
 	}
 }

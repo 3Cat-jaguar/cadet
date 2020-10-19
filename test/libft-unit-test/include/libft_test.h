@@ -6,7 +6,7 @@
 /*   By: alelievr <alelievr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created  2015/11/13 20:23:36 by alelievr          #+#    #+#             */
-/*   Updated: 2019/10/20 11:01:59 by juligonz         ###   ########.fr       */
+/*   Updated: 2020/10/19 16:08:14 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -227,7 +227,7 @@ enum		e_prot {
 
 //# define	PRINT_BITS(x, y)	print_double_bits(x, y);
 # define	SET_DIFF(x, y)		lseek(g_diff_fd, 0, SEEK_SET); dprintf(g_diff_fd, "%12s: |%.300s|\n%12s: |%.300s|", current_fun_name + 3, x, current_fun_name, y); write(g_diff_fd, "\0", 1);
-# define	SET_DIFF_INT(x, y)	lseek(g_diff_fd, 0, SEEK_SET); dprintf(g_diff_fd, "%12s: |%i|\n%12s: |%i|", current_fun_name + 3, x, current_fun_name, y) ; write(g_diff_fd, "\0", 1);
+# define	SET_DIFF_INT(x, y)	lseek(g_diff_fd, 0, SEEK_SET); dprintf(g_diff_fd, "%12s: |%i|\n%12s: |%i|", current_fun_name + 3, x, current_fun_name, y); write(g_diff_fd, "\0", 1);
 # define	SET_DIFF_DOUBLE(x, y)	lseek(g_diff_fd, 0, SEEK_SET); dprintf(g_diff_fd, "%12s: |%lf|\n%12s: |%lf|", current_fun_name + 3, x, current_fun_name, y) ; write(g_diff_fd, "\0", 1);
 # define	SET_DIFF_PTR(x, y)	lseek(g_diff_fd, 0, SEEK_SET); dprintf(g_diff_fd, "%12s: |%p|\n%12s: |%p|", current_fun_name + 3, x, current_fun_name, y) ; write(g_diff_fd, "\0", 1);
 //# define	SET_DIFF_BIT(x, y, z)	lseek(g_diff_fd, 0, SEEK_SET); dprintf(g_diff_fd, "%12s: |", current_fun_name + 3); PRINT_BITS(x, z); dprintf("|\n%12s: |", current_fun_name); PRINT_BITS(y, z); dprintf(g_diff_fd, "|");

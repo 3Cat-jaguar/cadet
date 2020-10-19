@@ -6,7 +6,7 @@
 /*   By: jtoty <jtoty@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/28 15:16:21 by jtoty             #+#    #+#             */
-/*   Updated: 2017/03/09 15:56:01 by jtoty            ###   ########.fr       */
+/*   Updated: 2020/10/19 15:18:06 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,7 @@ int				 	main(int argc, const char *argv[])
 		if (list == elem)
 			write(1, "A new list is not returned\n", 27);
 		tmp = list;
-		printf("tmp = %s elem = %s\n", tmp->content, elem->content);
+		printf("tmp = %s elem = %s\n", tmp->content, elem2->content);
 
 		while (tmp)
 		{
