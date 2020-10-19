@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylee </var/mail/ylee>                      +#+  +:+       +#+        */
+/*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 16:48:04 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/19 11:07:08 by ylee             ###   ########.fr       */
+/*   Created: 2020/10/19 11:20:37 by ylee              #+#    #+#             */
+/*   Updated: 2020/10/19 11:21:06 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,20 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*tmp;
 
-	while (*lst)
+	while (lst && *lst)
 	{
 		tmp = *lst;
-		lst = &(*lst->next);
-		del(tmp->content);
-		tmp->content = NULL;
-		tmp->next = NULL;
+		*lst = (*lst)->next;
+		if (tmp->content)
+		{
+			del(tmp->content);
+			tmp->content = NULL;
+		}
+		if (tmp->next)
+		{
+			free(tmp->next);
+			tmp->next = NULL;
+		}
 		free(tmp);
 		tmp = NULL;
 	}

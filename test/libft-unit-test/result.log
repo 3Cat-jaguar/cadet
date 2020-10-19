@@ -59,8 +59,8 @@ ft_lstsize:    [OK] [OK]
 ft_lstlast:    [OK] [OK] 
 ft_lstadd_back:[OK] [OK] [OK] 
 ft_lstdelone:  [OK] 
-ft_lstclear:   [FAILED] [NO CRASH] [OK] 
-[fail]: your lstclear does not work with basic input
+ft_lstclear:   [CRASH] [OK] [CRASH] 
+[crash]: your lstclear does not work with basic input
 Test code:
 	t_list *l = lstnew(strdup("nyancat"));
 
@@ -71,24 +71,22 @@ Test code:
 		exit(TEST_SUCCESS);
 	exit(TEST_FAILED);
 
-Diffs:
-    lstclear: |0x0|
- ft_lstclear: |0x7f90cfd001f0|
 
-[no crash]: your lstclear does not free the list
+[crash]: bad call number of the function pointer
 Test code:
-	t_list *l = lstnew(strdup("nyancat"));
-	t_list *tmp;
+	char *content = "hello !";
 
-	l->next = lstnew(strdup("#TEST#"));
-	tmp = l->next;
-	ft_lstclear(&l, lstdelone_f);
+	__delNum = 0;
+	list = malloc(sizeof(t_list));
+	__builtin___memset_chk (list, 0, sizeof(t_list), __builtin_object_size (list, 0));
+	list->next = malloc(sizeof(t_list));
+	__builtin___memset_chk (list->next, 0, sizeof(t_list), __builtin_object_size (list->next, 0));
+	list->content = content;
+	list->next->content = content + 2;
+	ft_lstclear(&list, lstdel_f);
 	write(2, "", 1);
-	if (!l)
-	{
-		free(tmp);
+	if (__delNum == 2)
 		exit(TEST_SUCCESS);
-	}
 	exit(TEST_FAILED);
 
 
