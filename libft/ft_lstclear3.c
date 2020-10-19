@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: ylee </var/mail/ylee>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 15:45:01 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/16 16:47:57 by ylee             ###   ########.fr       */
+/*   Created: 2020/10/16 16:48:04 by ylee              #+#    #+#             */
+/*   Updated: 2020/10/19 10:20:13 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	if (lst)
-	{
-		del(lst->content);
-		lst->content = NULL;
-	}
+
+
 }
