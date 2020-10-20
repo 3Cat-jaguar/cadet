@@ -6,11 +6,16 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 14:15:21 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/19 16:07:27 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/20 09:52:49 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void	ft_del(void *content)
+{
+	free(content);
+}
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
@@ -29,7 +34,10 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 			ft_lstadd_back(&new, now);
 		else
 		{
-			ft_lstclear(&new, del);
+			if (del)
+				ft_lstclear(&new, del);
+			else
+				ft_lstclear(&new, &ft_del);
 			return (0);
 		}
 		lst = lst->next;
