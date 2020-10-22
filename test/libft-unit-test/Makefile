@@ -6,7 +6,7 @@
 #    By: alelievr <alelievr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created  2015/04/04 19:22:36 by alelievr          #+#    #+#              #
-#    Updated: 2020/10/20 10:27:19 by ylee             ###   ########.fr        #
+#    Updated: 2020/10/22 16:25:15 by ylee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 #################
 
 #	Libft Makefile path
-LIBFTDIR	=	../../../try_eval/libft/
+LIBFTDIR	=	../../libft/
 
 #	Sources
 SRCDIR		=	./

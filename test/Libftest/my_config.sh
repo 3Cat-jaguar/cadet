@@ -5,7 +5,7 @@
 ###################################
 
 #Edit the next line with the path of your libft project.
-PATH_LIBFT=../../../try_eval/libft/
+PATH_LIBFT=../../libft/
 
 #If you use a relative path, don't put double quotes.
 #For example :
