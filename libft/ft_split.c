@@ -6,13 +6,13 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 09:41:48 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/15 14:28:07 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/20 10:07:12 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		count_word(char const *s, char c)
+static int	count_word(char const *s, char c)
 {
 	int		idx;
 	int		cnt;
@@ -33,7 +33,7 @@ int		count_word(char const *s, char c)
 	return (cnt);
 }
 
-char	*put_word(char const **s, char c, int *str_len)
+static char	*put_word(char const **s, char c, int *str_len)
 {
 	char	*str;
 
@@ -48,7 +48,7 @@ char	*put_word(char const **s, char c, int *str_len)
 	return (str);
 }
 
-char	**free_all(char **result, int cnt)
+static char	**free_all(char **result, int cnt)
 {
 	while (cnt >= 0)
 	{
@@ -60,7 +60,7 @@ char	**free_all(char **result, int cnt)
 	return (result);
 }
 
-char	**ft_split(char const *s, char c)
+char		**ft_split(char const *s, char c)
 {
 	char	**result;
 	int		cnt;

@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 09:44:24 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/14 09:29:33 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/25 19:07:46 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		len2;
 	char	*result;
 
-	if (!s1 || !s2)
+	if (!s1 && !s2)
 		return (0);
 	else if (!s1)
 		return ((char *)ft_strdup(s2));

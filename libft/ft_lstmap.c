@@ -6,18 +6,18 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/19 14:15:21 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/20 09:52:49 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/20 10:04:38 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_del(void *content)
+static void	ft_del(void *content)
 {
 	free(content);
 }
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*tmp;
 	t_list	*new;

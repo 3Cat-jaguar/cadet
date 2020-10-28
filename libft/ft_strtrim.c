@@ -6,13 +6,13 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 10:11:27 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/14 14:39:15 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/20 10:09:34 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		check_c_in_set(char c, char const *set)
+static int	check_c_in_set(char c, char const *set)
 {
 	int		i;
 
@@ -26,7 +26,7 @@ int		check_c_in_set(char c, char const *set)
 	return (1);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char		*ft_strtrim(char const *s1, char const *set)
 {
 	int		set_len;
 	int		str_len;

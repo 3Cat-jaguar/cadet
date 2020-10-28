@@ -6,13 +6,12 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/05 15:34:25 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/19 16:12:49 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/22 23:49:36 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
 
