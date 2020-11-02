@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 09:58:23 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/30 13:24:04 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/02 15:05:20 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 #include <unistd.h>
 #include "libft.h"
 
+void	ft_atoi_base16(int num, char **result);
+
 void	test(char *str, ...)
 {
-	va_list ap;
-	int		idx;
+	va_list			ap;
+	int				idx;
+	int				i;
 
 	idx = 0;
 	va_start(ap, str);
@@ -29,9 +32,16 @@ void	test(char *str, ...)
 		else if (str[idx] == '%')
 		{
 			idx++;
-			if (str[idx] == 'd')
+			if (str[idx] == 'd' || str[idx] == 'i')
 			{
 				ft_putnbr_fd(va_arg(ap, int), 1);
+			}
+			else if (str[idx] == 'u')
+			{
+				i = va_arg(ap, int);
+				if (i < 0)
+					i = -i;
+				ft_putnbr_fd(i, 1);
 			}
 			else if (str[idx] == 'c')
 			{
@@ -53,6 +63,32 @@ void	test(char *str, ...)
 
 int		main(void)
 {
-	test("test : %d %d %d %d %d %c %c %s %d %f %c %s %d end\n", 1, 2, 3, 4, 5, 'c', 'a', "test", -30, 2.567, '3', '\0', -1000);
+	char		*teststr;
+	long long	ptr;
+	int			test1;
+	char		*test2;
+
+	teststr = "hello";
+	test1 = -200;
+	test2 = (char *)ft_calloc(15, sizeof(char));
+	ft_atoi_base16(test1, &test2);
+	ptr = (long long)&teststr;
+	printf("test string : %-10s end\n", teststr);
+	printf("test string : 0x%llx end\n", ptr);
+	printf("test string : %p end\n", &teststr);
+	printf("test string : %.15d end\n", test1);
+	printf("test string : %.*d end\n", 15, test1);
+	printf("test hexa : %x end\n", test1);
+	printf("test hexa : %s end\n", test2);
+	free(test2);
+/*
+	teststr = "test string";
+	test("test : %d %i %d %d %u %c %c %s %d %f %c %s %u end\n", 1, 2, 3, 4, 5, 'c', 'a', "test", -30, 2.567, '3', "\0", -1000);
+	printf("test : %d %i %d %d %u %c %c %s %d %f %c %s %u end\n", 1, 2, 3, 4, 5, 'c', 'a', "test", -30, 2.567, '3', "\0", -1000);
+	printf("%s\n", teststr);
+	printf("%x\n", &teststr);
+	printf("%d\n", &teststr);
+
+*/
 	return (0);
 }
