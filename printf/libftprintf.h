@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper_str.c                                   :+:      :+:    :+:   */
+/*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
+/*   By: ylee </var/mail/ylee>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/03 09:59:00 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/03 16:31:57 by ylee             ###   ########.fr       */
+/*   Created: 2020/11/03 16:21:31 by ylee              #+#    #+#             */
+/*   Updated: 2020/11/03 16:45:31 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
-void	ft_toupper_str(char **str)
-{
-	int		idx;
-	char	*tmp;
+# include <stdarg.h>
+# include "libft/libft.h"
 
-	idx = 0;
-	tmp = *str;
-	while (tmp[idx])
-	{
-		tmp[idx] = ft_toupper(tmp[idx]);
-		idx++;
-	}
-	*str = tmp;
-}
+int 	ft_printf(const char *str, ...);
+void	ft_itoa_base16(int num, char **result);
+void	ft_toupper_str(char **str);
+
+#endif

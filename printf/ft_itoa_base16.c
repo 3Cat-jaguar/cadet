@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base16.c                                   :+:      :+:    :+:   */
+/*   ft_itoa_base16.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 14:34:41 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/03 10:25:45 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/03 16:31:39 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libftprintf.h"
 
-void	ft_atoi_base16(int num, char **result)
+void	ft_itoa_base16(int num, char **result)
 {
 	char			*base;
 	char			tmp[15];
