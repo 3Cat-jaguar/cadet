@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base16.c                                   :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 14:34:41 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/03 10:25:45 by ylee             ###   ########.fr       */
+/*   Created: 2020/10/14 16:17:44 by ylee              #+#    #+#             */
+/*   Updated: 2020/10/14 16:47:02 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-void	ft_atoi_base16(int num, char **result)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char			*base;
-	char			tmp[15];
-	unsigned int	uni;
-	int				idx;
+	int		idx_s;
+	char	*result;
 
-	base = "0123456789abcdef";
-	uni = (unsigned int)num;
-	idx = 0;
-	while (uni > 0)
+	if (!s)
+		return (0);
+	result = (char *)ft_calloc(ft_strlen(s) + 1, sizeof(char));
+	if (!result)
+		return (0);
+	idx_s = 0;
+	while (s[idx_s])
 	{
-		tmp[idx++] = base[(uni % 16)];
-		uni = uni / 16;
+		result[idx_s] = f(idx_s, s[idx_s]);
+		idx_s++;
 	}
-	while (--idx >= 0)
-		(*result)[uni++] = tmp[idx];
+	return (result);
 }

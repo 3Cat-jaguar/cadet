@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base16.c                                   :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 14:34:41 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/03 10:25:45 by ylee             ###   ########.fr       */
+/*   Created: 2020/10/08 15:10:15 by ylee              #+#    #+#             */
+/*   Updated: 2020/10/13 10:04:04 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include <stddef.h>
 
-void	ft_atoi_base16(int num, char **result)
+void	*ft_memset(void *str, int c, size_t len)
 {
-	char			*base;
-	char			tmp[15];
-	unsigned int	uni;
-	int				idx;
+	size_t	i;
+	char	*s;
 
-	base = "0123456789abcdef";
-	uni = (unsigned int)num;
-	idx = 0;
-	while (uni > 0)
+	i = 0;
+	s = str;
+	while (i < len)
 	{
-		tmp[idx++] = base[(uni % 16)];
-		uni = uni / 16;
+		*(s + i) = c;
+		i++;
 	}
-	while (--idx >= 0)
-		(*result)[uni++] = tmp[idx];
+	return ((void *)str);
 }

@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base16.c                                   :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 14:34:41 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/03 10:25:45 by ylee             ###   ########.fr       */
+/*   Created: 2020/10/08 09:30:49 by ylee              #+#    #+#             */
+/*   Updated: 2020/10/08 09:32:09 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-
-void	ft_atoi_base16(int num, char **result)
+int	ft_isalnum(int a)
 {
-	char			*base;
-	char			tmp[15];
-	unsigned int	uni;
-	int				idx;
-
-	base = "0123456789abcdef";
-	uni = (unsigned int)num;
-	idx = 0;
-	while (uni > 0)
-	{
-		tmp[idx++] = base[(uni % 16)];
-		uni = uni / 16;
-	}
-	while (--idx >= 0)
-		(*result)[uni++] = tmp[idx];
+	if (a >= '0' && a <= '9')
+		return (1);
+	else if (a >= 'A' && a <= 'Z')
+		return (1);
+	else if (a >= 'a' && a <= 'z')
+		return (1);
+	else
+		return (0);
 }

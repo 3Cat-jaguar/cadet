@@ -6,16 +6,17 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 09:58:23 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/02 15:05:20 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/03 10:25:02 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
-#include "libft.h"
+#include "libft/libft.h"
 
 void	ft_atoi_base16(int num, char **result);
+void	ft_toupper_str(char **str);
 
 void	test(char *str, ...)
 {
@@ -79,6 +80,8 @@ int		main(void)
 	printf("test string : %.15d end\n", test1);
 	printf("test string : %.*d end\n", 15, test1);
 	printf("test hexa : %x end\n", test1);
+	printf("test hexa : %s end\n", test2);
+	ft_toupper_str(&test2);
 	printf("test hexa : %s end\n", test2);
 	free(test2);
 /*

@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base16.c                                   :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 14:34:41 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/03 10:25:45 by ylee             ###   ########.fr       */
+/*   Created: 2020/10/10 14:56:19 by ylee              #+#    #+#             */
+/*   Updated: 2020/10/10 15:39:32 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
-
-void	ft_atoi_base16(int num, char **result)
+char	*ft_strchr(const char *str, int c)
 {
-	char			*base;
-	char			tmp[15];
-	unsigned int	uni;
-	int				idx;
+	int				i;
 
-	base = "0123456789abcdef";
-	uni = (unsigned int)num;
-	idx = 0;
-	while (uni > 0)
+	i = 0;
+	while (str[i])
 	{
-		tmp[idx++] = base[(uni % 16)];
-		uni = uni / 16;
+		if (str[i] == c)
+			return ((char *)&str[i]);
+		i++;
 	}
-	while (--idx >= 0)
-		(*result)[uni++] = tmp[idx];
+	if (str[i] == c)
+		return ((char *)&str[i]);
+	else
+		return (0);
 }

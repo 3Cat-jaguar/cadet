@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base16.c                                   :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 14:34:41 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/03 10:25:45 by ylee             ###   ########.fr       */
+/*   Created: 2020/10/11 18:23:10 by ylee              #+#    #+#             */
+/*   Updated: 2020/10/12 13:45:36 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include <stddef.h>
 
-void	ft_atoi_base16(int num, char **result)
+int		ft_memcmp(const void *str1, const void *str2, size_t n)
 {
-	char			*base;
-	char			tmp[15];
-	unsigned int	uni;
-	int				idx;
+	size_t				i;
+	const unsigned char	*s1;
+	const unsigned char	*s2;
 
-	base = "0123456789abcdef";
-	uni = (unsigned int)num;
-	idx = 0;
-	while (uni > 0)
+	i = 0;
+	s1 = str1;
+	s2 = str2;
+	if (!str1 && !str2)
+		return (0);
+	while (i < n)
 	{
-		tmp[idx++] = base[(uni % 16)];
-		uni = uni / 16;
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
 	}
-	while (--idx >= 0)
-		(*result)[uni++] = tmp[idx];
+	return (0);
 }

@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base16.c                                   :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 14:34:41 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/03 10:25:45 by ylee             ###   ########.fr       */
+/*   Created: 2020/10/10 15:47:23 by ylee              #+#    #+#             */
+/*   Updated: 2020/10/12 14:48:03 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include <stddef.h>
 
-void	ft_atoi_base16(int num, char **result)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char			*base;
-	char			tmp[15];
-	unsigned int	uni;
-	int				idx;
+	int			i;
+	char		*d;
+	const char	*s;
 
-	base = "0123456789abcdef";
-	uni = (unsigned int)num;
-	idx = 0;
-	while (uni > 0)
+	if (!dst && !src)
+		return (0);
+	d = dst;
+	s = src;
+	if (dst < src)
 	{
-		tmp[idx++] = base[(uni % 16)];
-		uni = uni / 16;
+		i = 0;
+		while (i < (int)len)
+		{
+			*(d + i) = *(s + i);
+			i++;
+		}
 	}
-	while (--idx >= 0)
-		(*result)[uni++] = tmp[idx];
+	else if (d > s)
+	{
+		i = (int)len;
+		while (--i >= 0)
+			*(d + i) = *(s + i);
+	}
+	return (dst);
 }

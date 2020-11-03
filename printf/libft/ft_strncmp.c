@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base16.c                                   :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 14:34:41 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/03 10:25:45 by ylee             ###   ########.fr       */
+/*   Created: 2020/10/11 22:03:52 by ylee              #+#    #+#             */
+/*   Updated: 2020/10/12 13:46:42 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include <stddef.h>
 
-void	ft_atoi_base16(int num, char **result)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char			*base;
-	char			tmp[15];
-	unsigned int	uni;
-	int				idx;
+	size_t			i;
+	unsigned char	c1;
+	unsigned char	c2;
 
-	base = "0123456789abcdef";
-	uni = (unsigned int)num;
-	idx = 0;
-	while (uni > 0)
+	i = 0;
+	while (i < n)
 	{
-		tmp[idx++] = base[(uni % 16)];
-		uni = uni / 16;
+		c1 = (unsigned char)s1[i];
+		c2 = (unsigned char)s2[i];
+		if (!s1[i] && !s2[i])
+			return (0);
+		if (c1 != c2)
+			return (c1 - c2);
+		i++;
 	}
-	while (--idx >= 0)
-		(*result)[uni++] = tmp[idx];
+	return (0);
 }

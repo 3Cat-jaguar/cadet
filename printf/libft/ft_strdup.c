@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base16.c                                   :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 14:34:41 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/03 10:25:45 by ylee             ###   ########.fr       */
+/*   Created: 2020/10/12 10:15:47 by ylee              #+#    #+#             */
+/*   Updated: 2020/10/12 10:19:36 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include <stdlib.h>
 
-void	ft_atoi_base16(int num, char **result)
+char	*ft_strdup(const char *s1)
 {
-	char			*base;
-	char			tmp[15];
-	unsigned int	uni;
-	int				idx;
+	int		i;
+	int		s1_len;
+	char	*result;
 
-	base = "0123456789abcdef";
-	uni = (unsigned int)num;
-	idx = 0;
-	while (uni > 0)
+	s1_len = 0;
+	while (s1[s1_len])
+		s1_len++;
+	result = (char *)malloc(sizeof(char) * (s1_len + 1));
+	if (!result)
+		return (0);
+	i = 0;
+	while (s1[i])
 	{
-		tmp[idx++] = base[(uni % 16)];
-		uni = uni / 16;
+		result[i] = s1[i];
+		i++;
 	}
-	while (--idx >= 0)
-		(*result)[uni++] = tmp[idx];
+	result[i] = '\0';
+	return (result);
 }

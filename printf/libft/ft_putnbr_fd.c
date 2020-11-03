@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base16.c                                   :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 14:34:41 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/03 10:25:45 by ylee             ###   ########.fr       */
+/*   Created: 2020/10/15 15:41:15 by ylee              #+#    #+#             */
+/*   Updated: 2020/10/16 11:39:11 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-void	ft_atoi_base16(int num, char **result)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char			*base;
-	char			tmp[15];
-	unsigned int	uni;
-	int				idx;
+	long long	ln;
+	int			idx;
+	char		num[20];
 
-	base = "0123456789abcdef";
-	uni = (unsigned int)num;
+	ft_bzero(num, 20);
+	if (n < 0)
+		ln = (long long)n * (-1);
+	else
+		ln = (long long)n;
 	idx = 0;
-	while (uni > 0)
+	while (ln > 0)
 	{
-		tmp[idx++] = base[(uni % 16)];
-		uni = uni / 16;
+		num[idx++] = ln % 10 + '0';
+		ln = ln / 10;
 	}
-	while (--idx >= 0)
-		(*result)[uni++] = tmp[idx];
+	if (n < 0)
+		num[idx++] = '-';
+	if (n == 0)
+		num[idx++] = '0';
+	while (idx > 0)
+		write(fd, &num[--idx], 1);
 }

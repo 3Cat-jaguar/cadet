@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base16.c                                   :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 14:34:41 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/03 10:25:45 by ylee             ###   ########.fr       */
+/*   Created: 2020/10/16 14:25:39 by ylee              #+#    #+#             */
+/*   Updated: 2020/10/16 15:41:17 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 
-void	ft_atoi_base16(int num, char **result)
+int		ft_lstsize(t_list *lst)
 {
-	char			*base;
-	char			tmp[15];
-	unsigned int	uni;
-	int				idx;
+	t_list	*temp;
+	int		size;
 
-	base = "0123456789abcdef";
-	uni = (unsigned int)num;
-	idx = 0;
-	while (uni > 0)
+	temp = lst;
+	size = 0;
+	while (temp)
 	{
-		tmp[idx++] = base[(uni % 16)];
-		uni = uni / 16;
+		size++;
+		temp = temp->next;
 	}
-	while (--idx >= 0)
-		(*result)[uni++] = tmp[idx];
+	return (size);
 }
