@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 15:41:15 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/16 13:22:25 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/04 16:03:39 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,6 @@ void	ft_putstr_fd(char *s, int fd)
 		s_len = ft_strlen(s);
 		write(fd, s, s_len);
 	}
+	else
+		write(fd, "(null)", 6);
 }

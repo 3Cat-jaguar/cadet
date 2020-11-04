@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base16.c                                   :+:      :+:    :+:   */
+/*   ft_put_unsigned_int_fd.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 14:34:41 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/04 15:42:31 by ylee             ###   ########.fr       */
+/*   Created: 2020/10/15 15:41:15 by ylee              #+#    #+#             */
+/*   Updated: 2020/11/04 14:07:52 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_itoa_base16(unsigned int num, char **result)
+void	ft_put_unsigned_int_fd(unsigned int n, int fd)
 {
-	char			*base;
-	char			tmp[15];
-	unsigned int	uni;
-	int				idx;
+	int			idx;
+	char		num[20];
 
-	base = "0123456789abcdef";
-	uni = (unsigned int)num;
+	ft_bzero(num, 20);
 	idx = 0;
-	while (uni > 0)
+	if (n == 0)
+		num[idx++] = '0';
+	while (n != 0)
 	{
-		tmp[idx++] = base[(uni % 16)];
-		uni = uni / 16;
+		num[idx++] = n % 10 + '0';
+		n = n / 10;
 	}
-	while (--idx >= 0)
-		(*result)[uni++] = tmp[idx];
+	while (idx > 0)
+		write(fd, &num[--idx], 1);
 }

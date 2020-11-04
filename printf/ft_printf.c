@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylee </var/mail/ylee>                      +#+  +:+       +#+        */
+/*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 16:20:37 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/03 16:35:46 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/04 16:09:48 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 int		ft_printf(const char *str, ...)
 {
 	va_list			ap;
+	char			*result;
 	int				idx;
 	int				i;
 
@@ -29,27 +30,38 @@ int		ft_printf(const char *str, ...)
 		{
 			idx++;
 			if (str[idx] == 'd' || str[idx] == 'i')
-			{
 				ft_putnbr_fd(va_arg(ap, int), 1);
-			}
-			else if (str[idx] == 'u')
-			{
-				i = va_arg(ap, int);
-				if (i < 0)
-					i = -i;
-				ft_putnbr_fd(i, 1);
-			}
 			else if (str[idx] == 'c')
-			{
 				ft_putchar_fd(va_arg(ap, int), 1);
-			}
 			else if (str[idx] == 's')
-			{
 				ft_putstr_fd(va_arg(ap, char *), 1);
-			}
-			else if (str[idx] == 'f')
+			else if (str[idx] == 'u')
+				ft_put_unsigned_int_fd(va_arg(ap, unsigned int), 1);
+			else if (str[idx] == 'x')
 			{
-				printf("%f", va_arg(ap, double));
+				result = (char *)ft_calloc(15, sizeof(char));
+				ft_itoa_base16(va_arg(ap, unsigned int), &result);
+				ft_putstr_fd(result, 1);
+				free(result);
+				result = NULL;
+			}
+			else if (str[idx] == 'X')
+			{
+				result = (char *)ft_calloc(15, sizeof(char));
+				ft_itoa_base16(va_arg(ap, unsigned int), &result);
+				ft_toupper_str(&result);
+				ft_putstr_fd(result, 1);
+				free(result);
+				result = NULL;
+			}
+			else if (str[idx] == 'p')
+			{
+				result = (char *)ft_calloc(25, sizeof(char));
+				ft_lltoa_base16(va_arg(ap, long long), &result);
+				ft_putstr_fd("0x", 1);
+				ft_putstr_fd(result, 1);
+				free(result);
+				result = NULL;
 			}
 		}
 		idx++;
