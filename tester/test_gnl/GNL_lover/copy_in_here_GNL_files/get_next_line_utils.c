@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 13:57:49 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/23 15:13:04 by ylee             ###   ########.fr       */
+/*   Updated: 2020/10/28 10:30:19 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (0);
 	ft_strlcpy(result, s1, len1 + 1);
 	ft_strlcat(result, s2, len1 + len2 + 1);
+	free((void *)s1);
+	s1 = NULL;
 	return (result);
 }

@@ -5,7 +5,7 @@
 ###################################
 
 #Edit the next line with the path of your libft project.
-PATH_GNL="../../mygnl"
+PATH_GNL="../../../gnl"
 
 #If you use a relative path, don't put double quotes.
 #For example :
@@ -58,6 +58,7 @@ BUFFER_SIZE=(
 	32
 	48
 	9999
+	10000000
 )
 
 NORM=1

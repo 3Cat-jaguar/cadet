@@ -3,29 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seungnle <seungnle@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/21 19:32:43 by seungnle          #+#    #+#             */
-/*   Updated: 2020/10/24 13:02:06 by seungnle         ###   ########.fr       */
+/*   Created: 2020/10/21 13:56:17 by ylee              #+#    #+#             */
+/*   Updated: 2020/10/28 16:01:57 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_BONUS_H
 # define GET_NEXT_LINE_BONUS_H
-
+# include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include <unistd.h>
 # include <limits.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 40
+#  define BUFFER_SIZE 10
 # endif
 
 int		get_next_line(int fd, char **line);
-int		my_len(char *a);
-void	my_cpy(char *s1, char *s2);
-char	*my_join(char *s1, char *s2);
-char	*my_dup(char *s);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strdup(const char *s1);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
 #endif

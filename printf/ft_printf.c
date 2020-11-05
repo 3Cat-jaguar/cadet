@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 16:20:37 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/04 16:09:48 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/05 13:16:11 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int		ft_printf(const char *str, ...)
 	va_list			ap;
 	char			*result;
 	int				idx;
-	int				i;
 
 	idx = 0;
 	va_start(ap, str);

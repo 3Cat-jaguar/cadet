@@ -3,82 +3,97 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seungnle <seungnle@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/21 19:50:46 by seungnle          #+#    #+#             */
-/*   Updated: 2020/10/24 13:02:08 by seungnle         ###   ########.fr       */
+/*   Created: 2020/10/21 13:56:33 by ylee              #+#    #+#             */
+/*   Updated: 2020/10/28 16:01:23 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-int	nl_idx(char *a)
+int		check_read(char **line, char *restline, char **buf, int read_len)
 {
-	int i;
-
-	i = 0;
-	while (a[i])
+	if (read_len < 0)
 	{
-		if (a[i] == '\n')
-			return (i);
-		++i;
+		free(*buf);
+		*buf = NULL;
+		return (-1);
+	}
+	else if (read_len == 0 && !restline)
+	{
+		*line = ft_strdup("");
+		free(*buf);
+		*buf = NULL;
+		return (0);
+	}
+	return (1);
+}
+
+int		check_eol(char **line, char **restline, char **buf)
+{
+	int		idx;
+	char	*tmp;
+
+	idx = 0;
+	while ((*restline)[idx])
+	{
+		if ((*restline)[idx] == '\n')
+		{
+			(*restline)[idx] = '\0';
+			*line = ft_strdup(*restline);
+			tmp = ft_strdup(&(*restline)[idx + 1]);
+			free(*restline);
+			*restline = NULL;
+			*restline = tmp;
+			free(*buf);
+			*buf = NULL;
+			return (1);
+		}
+		idx++;
+	}
+	return (0);
+}
+
+int		check_txt(char **line, char **restline, char **buf, int read_len)
+{
+	(*buf)[read_len] = '\0';
+	*restline = ft_strjoin(*restline, *buf);
+	if (check_eol(line, restline, buf) == 1)
+		return (1);
+	if (read_len < BUFFER_SIZE)
+	{
+		*line = ft_strdup(*restline);
+		free(*restline);
+		*restline = NULL;
+		free(*buf);
+		*buf = NULL;
+		return (0);
 	}
 	return (-1);
 }
 
-int	my_split(char **storage, char **line, int idx)
+int		get_next_line(int fd, char **line)
 {
-	int		len;
-	char	*temp;
+	static char	*restline[OPEN_MAX];
+	char		*buf;
+	ssize_t		read_len;
+	int			result;
 
-	(*storage)[idx] = 0;
-	*line = my_dup(*storage);
-	len = my_len(*storage + idx + 1);
-	if (!len)
-	{
-		free(*storage);
-		*storage = 0;
-		return (1);
-	}
-	temp = my_dup(*storage + idx + 1);
-	free(*storage);
-	*storage = temp;
-	return (1);
-}
-
-int	ft_return(char **storage, char **line, int size)
-{
-	int nl;
-
-	if (size < 0)
+	if (fd < 0 || fd >= OPEN_MAX || !line || BUFFER_SIZE <= 0)
 		return (-1);
-	if (*storage && (nl = nl_idx(*storage)) >= 0)
-		return (my_split(storage, line, nl));
-	if (*storage)
+	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buf)
+		return (-1);
+	read_len = read(fd, buf, BUFFER_SIZE);
+	if ((result = check_read(line, restline[fd], &buf, read_len)) <= 0)
+		return (result);
+	while (read_len >= 0)
 	{
-		*line = *storage;
-		*storage = 0;
-		return (0);
+		result = check_txt(line, &restline[fd], &buf, read_len);
+		if (result >= 0)
+			return (result);
+		read_len = read(fd, buf, BUFFER_SIZE);
 	}
-	*line = my_dup("");
 	return (0);
-}
-
-int	get_next_line(int fd, char **line)
-{
-	static char	*storage[OPEN_MAX];
-	char		temp[BUFFER_SIZE + 1];
-	int			nl;
-	int			size;
-
-	if (fd < 0 || !line || BUFFER_SIZE <= 0)
-		return (-1);
-	while ((size = read(fd, temp, BUFFER_SIZE)) > 0)
-	{
-		temp[size] = 0;
-		storage[fd] = my_join(storage[fd], temp);
-		if ((nl = nl_idx(storage[fd])) >= 0)
-			return (my_split(&storage[fd], line, nl));
-	}
-	return (ft_return(&storage[fd], line, size));
 }

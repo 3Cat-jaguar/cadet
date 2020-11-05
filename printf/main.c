@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 09:58:23 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/04 16:02:07 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/05 13:15:51 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ int		main(void)
 	ft_printf("test x : %x\n", usi);
 	printf("test X : %X\n", usi);
 	ft_printf("test X : %X\n", usi);
-
+	printf("test : d = %d, i = %i, c = %c, s = %s, p = %p, u = %u, x = %x, X = %X end\n", test1, test1, testc, teststr, &teststr, usi, usi, usi);
+	ft_printf("test : d = %d, i = %i, c = %c, s = %s, p = %p, u = %u, x = %x, X = %X end\n", test1, test1, testc, teststr, &teststr, usi, usi, usi);
 
 
 
