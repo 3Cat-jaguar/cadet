@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/21 13:56:33 by ylee              #+#    #+#             */
-/*   Updated: 2020/10/28 16:01:23 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/05 14:12:01 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,5 @@ int		get_next_line(int fd, char **line)
 			return (result);
 		read_len = read(fd, buf, BUFFER_SIZE);
 	}
-	return (0);
+	return (-1);
 }

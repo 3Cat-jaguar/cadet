@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 09:58:23 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/05 13:15:51 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/07 21:35:54 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,13 @@ int		main(void)
 	int			test1;
 //	char		*test2;
 	unsigned int	usi;
+	float		testfloat;
 
 	testc = 0;
 	teststr = NULL;
+	testfloat = 123;
 //	ptr = &teststr;
-	test1 = -12345;
+	test1 = 12345;
 	usi = 429876405;
 	printf("test d : %d\n", test1);
 	ft_printf("test d : %d\n", test1);
@@ -46,8 +48,25 @@ int		main(void)
 	ft_printf("test X : %X\n", usi);
 	printf("test : d = %d, i = %i, c = %c, s = %s, p = %p, u = %u, x = %x, X = %X end\n", test1, test1, testc, teststr, &teststr, usi, usi, usi);
 	ft_printf("test : d = %d, i = %i, c = %c, s = %s, p = %p, u = %u, x = %x, X = %X end\n", test1, test1, testc, teststr, &teststr, usi, usi, usi);
-
-
+	printf("test flag + : % d\n", test1);
+	printf("test flag +0 : %+010d\n", test1);
+	printf("test flag 0+ : %0+10d\n", test1);
+	printf("test flag  0 : % 010d\n", test1);
+	printf("test flag 0  : %0 10d\n", test1);
+	printf("test flag #10o : %0#10o\n", test1);
+	printf("test flag #15e : %0#15e\n", 123.45678);
+	printf("test flag #15f : %0#15f\n", 123.45678);
+	printf("test flag #15a : %0#15a\n", 123.45678);
+	printf("test flag #15g : %0#15g\n", 123.45678);
+	printf("test flag f : %f\n", 123.45678);
+	printf("test flag #f : %#f\n", 123.45678);
+	printf("test flag 0#f : %0#f\n", 123.45678);
+	printf("test flag 10f : %10f\n", 123.45678);
+	printf("test flag #10f : %#10f\n", 123.45678);
+	printf("test flag 15f : %15f\n", testfloat);
+	printf("test flag #15f : %#15f\n", testfloat);
+	printf("test flag f : %f\n", testfloat);
+	printf("test flag #f : %#f\n", testfloat);
 
 
 /*

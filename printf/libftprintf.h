@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ylee </var/mail/ylee>                      +#+  +:+       +#+        */
+/*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 16:21:31 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/04 15:42:43 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/07 21:55:06 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,33 @@
 # include <stdarg.h>
 # include "libft/libft.h"
 
-int 	ft_printf(const char *str, ...);
-void	ft_itoa_base16(unsigned int num, char **result);
-void	ft_toupper_str(char **str);
-void	ft_put_unsigned_int_fd(unsigned int n, int fd);
-void	ft_lltoa_base16(long long num, char **result);
-void	ft_uitoa(unsigned int num, char **result);
+int				ft_printf(const char *str, ...);
+void			ft_itoa_base16(unsigned int num, char **result);
+void			ft_toupper_str(char **str);
+void			ft_put_unsigned_int_fd(unsigned int n, int fd);
+void			ft_lltoa_base16(long long num, char **result);
+void			ft_uitoa(unsigned int num, char **result);
+
+typedef struct	s_arg
+{
+	//flags
+	int		dash;
+	int		plus;
+	int		space;
+	int		sharp;
+	int		zero;
+	//width
+	int		width;
+	//.precision
+	int		dot;
+	int		precision;
+	//length
+	int		l;
+	int		ll;
+	int		h;
+	int		hh;
+	//specifier
+	char	specifier;
+}				t_arg;
 
 #endif

@@ -6,19 +6,41 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 16:20:37 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/05 16:52:12 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/07 21:54:37 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include <stdio.h>
 
+void	init_list(t_arg **lst)
+{
+	*lst->dash = 0;
+	*lst->plus = 0;
+	*lst->space = 0;
+	*lst->sharp = 0;
+	*lst->zero = 0;
+
+	*lst->width = 0;
+
+	*lst->dot = 0;
+	*lst->precision = 0;
+
+	*lst->l = 0;
+	*lst->ll = 0;
+	*lst->h = 0;
+	*lst->hh = 0;
+
+	*lst->specifier = (char)0;
+}
+
 int		ft_printf(const char *str, ...)
 {
 	va_list			ap;
 	char			*result;
 	int				idx;
-
+	t_arg			*tmp_arg;
+}
 	idx = 0;
 	va_start(ap, str);
 	while (str[idx])
@@ -28,6 +50,7 @@ int		ft_printf(const char *str, ...)
 		else if (str[idx] == '%')
 		{
 			idx++;
+			init_list(&tmp_arg);
 			if (str[idx] == 'd' || str[idx] == 'i')
 				ft_putnbr_fd(va_arg(ap, int), 1);
 			else if (str[idx] == 'c')
