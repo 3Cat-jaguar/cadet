@@ -6,7 +6,8 @@ SRCS = ft_printf.c\
 	   ft_toupper_str.c\
 	   ft_put_unsigned_int_fd.c\
 	   ft_lltoa_base16.c\
-	   ft_uitoa.c
+	   ft_uitoa.c\
+	   ft_init_arg_list.c
 
 OBJECTS = $(SRCS:.c=.o)
 
