@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 09:58:23 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/07 21:35:54 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/10 15:51:49 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int		main(void)
 //	ptr = &teststr;
 	test1 = 12345;
 	usi = 429876405;
-	printf("test d : %d\n", test1);
-	ft_printf("test d : %d\n", test1);
+	printf("test +d : %+d\n", test1);
+	ft_printf("test +d : %+#- 023.14lld\n", test1);
 	printf("test i : %i\n", test1);
 	ft_printf("test i : %i\n", test1);
 	printf("test c : %c\n", testc);
