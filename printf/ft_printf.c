@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 16:20:37 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/10 15:51:17 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/11 11:09:19 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ int		ft_printf(const char *str, ...)
 	char			*result;
 	int				idx;
 	t_arg			*tmp_arg;
+	char			spcf;
 
 	idx = 0;
 	tmp_arg = ft_init_arg_list();
@@ -123,22 +124,17 @@ int		ft_printf(const char *str, ...)
 		{
 			tmp_arg = ft_init_arg_list();
 			idx = set_arg_list(ap, &tmp_arg, (char *)str, idx);
-			printf("\n");
-			printf("flag : dash-%d plus-%d space-%d sharp-%d zero-%d\n", tmp_arg->dash, tmp_arg->plus, tmp_arg->space, tmp_arg->sharp, tmp_arg->zero);
-			printf("width : width-%d\n", tmp_arg->width);
-			printf("dot precision : dot-%d precision-%d\n", tmp_arg->dot, tmp_arg->precision);
-			printf("length : l-%d ll-%d h-%d hh-%d\n", tmp_arg->l, tmp_arg->ll, tmp_arg->h, tmp_arg->hh);
-			printf("specifier : specifier-%c\n", tmp_arg->specifier);
-
-			if (str[idx] == 'd' || str[idx] == 'i')
+//			printf("\ninput star : %d\n", tmp_arg->precision);
+			spcf = tmp_arg->specifier;
+			if (spcf == 'd' || spcf == 'i')
 				ft_putnbr_fd(va_arg(ap, int), 1);
-			else if (str[idx] == 'c')
+			else if (spcf == 'c')
 				ft_putchar_fd(va_arg(ap, int), 1);
-			else if (str[idx] == 's')
+			else if (spcf == 's')
 				ft_putstr_fd(va_arg(ap, char *), 1);
-			else if (str[idx] == 'u')
+			else if (spcf == 'u')
 				ft_put_unsigned_int_fd(va_arg(ap, unsigned int), 1);
-			else if (str[idx] == 'x')
+			else if (spcf == 'x')
 			{
 				result = (char *)ft_calloc(15, sizeof(char));
 				ft_itoa_base16(va_arg(ap, unsigned int), &result);
@@ -146,7 +142,7 @@ int		ft_printf(const char *str, ...)
 				free(result);
 				result = NULL;
 			}
-			else if (str[idx] == 'X')
+			else if (spcf == 'X')
 			{
 				result = (char *)ft_calloc(15, sizeof(char));
 				ft_itoa_base16(va_arg(ap, unsigned int), &result);
@@ -155,7 +151,7 @@ int		ft_printf(const char *str, ...)
 				free(result);
 				result = NULL;
 			}
-			else if (str[idx] == 'p')
+			else if (spcf == 'p')
 			{
 				result = (char *)ft_calloc(25, sizeof(char));
 				ft_lltoa_base16(va_arg(ap, long long), &result);
@@ -164,7 +160,6 @@ int		ft_printf(const char *str, ...)
 				free(result);
 				result = NULL;
 			}
-
 		}
 		idx++;
 	}
