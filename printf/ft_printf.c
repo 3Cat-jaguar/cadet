@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 16:20:37 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/11 11:09:19 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/11 13:28:41 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,8 @@ int		ft_printf(const char *str, ...)
 		{
 			tmp_arg = ft_init_arg_list();
 			idx = set_arg_list(ap, &tmp_arg, (char *)str, idx);
-//			printf("\ninput star : %d\n", tmp_arg->precision);
+			printf("\ninput star width : %d\n", tmp_arg->width);
+			printf("input star precision : %d\n", tmp_arg->precision);
 			spcf = tmp_arg->specifier;
 			if (spcf == 'd' || spcf == 'i')
 				ft_putnbr_fd(va_arg(ap, int), 1);
