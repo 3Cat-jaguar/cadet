@@ -6,16 +6,14 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 09:16:13 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/09 10:19:18 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/17 13:29:24 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-t_arg	*ft_init_arg_list(void)
+t_arg	*ft_init_arg_list(t_arg *arg)
 {
-	t_arg	*arg;
-
 	arg = (t_arg *)malloc(sizeof(t_arg));
 	if (!arg)
 		return (0);
@@ -31,6 +29,6 @@ t_arg	*ft_init_arg_list(void)
 	arg->ll = 0;
 	arg->h = 0;
 	arg->hh = 0;
-	arg->specifier = '\0';
+	arg->specifier = 0;
 	return (arg);
 }

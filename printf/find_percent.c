@@ -6,21 +6,20 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 13:35:45 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/17 11:26:55 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/17 13:36:12 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-char	*find_percent(va_list ap, char *str, int *idx)
+char	*find_percent(va_list ap, t_arg *arg, char *str, int *idx)
 {
 	int		i;
-	t_arg	*arg;
 
 	i = *idx;
 	if (str[i++] != '%')
 		return (0);
-	if (!(arg = ft_init_arg_list()))
+	if (!(arg = ft_init_arg_list(arg)))
 		return (0);
 	while (check_flags(arg, str[i]) == 1)
 		i++;

@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 16:21:31 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/09 10:19:33 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/17 13:28:14 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct	s_arg
 	int		h;
 	int		hh;
 	//specifier
-	char	specifier;
+	int		specifier;
 }				t_arg;
 
 t_arg	*ft_init_arg_list(void);
