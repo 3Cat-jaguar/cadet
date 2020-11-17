@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 09:58:23 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/11 13:29:29 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/17 14:59:57 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,25 @@ int		main(void)
 	test1 = 12345;
 	usi = 429876405;
 	printf("test +d : %+d\n", test1);
-	ft_printf("test +d : %+#- 023.*lld\n", 13, test1);
+	ft_printf("tess +d : %+#- 023.*lld\n", 13, test1);
 	printf("test i : %i\n", test1);
-	ft_printf("test i : %i\n", test1);
+	ft_printf("tess i : %i\n", test1);
 	printf("test c : %c\n", testc);
-	ft_printf("test c : %c\n", testc);
+	ft_printf("tess c : %c\n", testc);
 	printf("test s : %s\n", teststr);
-	ft_printf("test s : %s\n", teststr);
+	ft_printf("tess s : %s\n", teststr);
 	printf("test p : %p\n", &teststr);
-	ft_printf("test p : %p\n", &teststr);
+	ft_printf("tess p : %p\n", &teststr);
 	printf("test u : %u\n", usi);
-	ft_printf("test u : %u\n", usi);
+	ft_printf("tess u : %u\n", usi);
 	printf("test x : %x\n", usi);
-	ft_printf("test x : %x\n", usi);
+	ft_printf("tess x : %x\n", usi);
 	printf("test X : %X\n", usi);
-	ft_printf("test X : %X\n", usi);
+	ft_printf("tess X : %X\n", usi);
 	printf("test : d = %d, i = %i, c = %c, s = %s, p = %p, u = %u, x = %x, X = %X end\n", test1, test1, testc, teststr, &teststr, usi, usi, usi);
-	ft_printf("test : d = %*.*d, i = %i, c = %c, s = %*.*s, p = %*p, u = %u, x = %x, X = %X end\n", 1, 2, test1, test1, testc, 3, 4, teststr, 5, &teststr, usi, usi, usi);
+	ft_printf("tess : d = %*.*d, i = %i, c = %c, s = %*.*s, p = %*p, u = %u, x = %x, X = %X end\n", 1, 2, test1, test1, testc, 3, 4, teststr, 5, &teststr, usi, usi, usi);
+	
+/*	
 	printf("test flag + : % d\n", test1);
 	printf("test flag +0 : %+010d\n", test1);
 	printf("test flag 0+ : %0+10d\n", test1);
@@ -69,7 +71,6 @@ int		main(void)
 	printf("test flag #f : %#f\n", testfloat);
 
 
-/*
 	teststr = "hello";
 	test1 = -200;
 	test2 = (char *)ft_calloc(15, sizeof(char));

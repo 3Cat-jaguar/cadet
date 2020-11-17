@@ -7,7 +7,13 @@ SRCS = ft_printf.c\
 	   ft_put_unsigned_int_fd.c\
 	   ft_lltoa_base16.c\
 	   ft_uitoa.c\
-	   ft_init_arg_list.c
+	   find_percent.c\
+	   ft_init_arg_list.c\
+	   check_flags.c\
+	   check_specifier.c\
+	   width_or_precision.c\
+	   check_length.c\
+	   modify_str_by_arg.c
 
 OBJECTS = $(SRCS:.c=.o)
 

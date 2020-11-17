@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 16:21:31 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/17 13:28:14 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/17 14:15:16 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,12 @@ typedef struct	s_arg
 	int		specifier;
 }				t_arg;
 
-t_arg	*ft_init_arg_list(void);
+char	*find_percent(va_list ap, t_arg *arg, char *str, int *idx);
+t_arg	*ft_init_arg_list(t_arg *arg);
+int		check_flags(t_arg *arg, char c);
+int		check_specifier(char c);
+int		width_or_precision(va_list ap, t_arg *arg, char *str);
+int		check_length(t_arg *arg, char *str);
+char	*modify_str_by_arg(va_list ap, t_arg *arg);
 
 #endif

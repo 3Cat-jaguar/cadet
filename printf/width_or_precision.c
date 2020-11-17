@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lltoa_base16.c                                  :+:      :+:    :+:   */
+/*   width_or_precision.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 14:34:41 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/17 15:16:18 by ylee             ###   ########.fr       */
+/*   Created: 2020/11/17 13:42:04 by ylee              #+#    #+#             */
+/*   Updated: 2020/11/17 13:59:15 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	ft_lltoa_base16(long long num, char **result)
+int		width_or_precision(va_list ap, t_arg *arg, char *str)
 {
-	char				*base;
-	char				tmp[25];
-	unsigned long long	ull;
-	int					idx;
+	int		i;
 
-	ft_bzero(tmp, 25);
-	base = "0123456789abcdef";
-	ull = (unsigned long long)num;
-	idx = 0;
-	while (ull != 0)
+	i = 0;
+	if (str[i] >= '1' && str[i] <= '9')
 	{
-		tmp[idx++] = base[(int)(ull % 16)];
-		ull = ull / 16;
+		if (arg->dot == 0)
+			arg->width = ft_atoi(str);
+		else if (arg->dot == 1)
+			arg->precision = ft_atoi(str);
+		while (str[i] >= '0' && str[i] <= '9')
+			i++;
 	}
-	while (--idx >= 0)
-		(*result)[ull++] = tmp[idx];
+	else if (str[i] == '*')
+	{
+		if (arg->dot == 0)
+			arg->width = va_arg(ap, int);
+		else if (arg->dot == 1)
+			arg->precision = va_arg(ap, int);
+		i++;
+	}
+	return (i);
 }
