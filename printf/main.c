@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 09:58:23 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/17 14:59:57 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/17 16:56:11 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int		main(void)
 	unsigned int	usi;
 	float		testfloat;
 
-	testc = 0;
-	teststr = NULL;
+	testc = 'a';
+	teststr = "hello";
 	testfloat = 123;
 //	ptr = &teststr;
 	test1 = 12345;

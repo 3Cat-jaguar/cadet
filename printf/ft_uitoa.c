@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 14:34:41 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/04 15:38:04 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/17 16:42:11 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ft_uitoa(unsigned int num, char **result)
 		tmp[idx++] = base[(int)(num % 10)];
 		num = num / 10;
 	}
+	*result = (char *)ft_calloc(idx, sizeof(char));
 	while (--idx >= 0)
 		(*result)[num++] = tmp[idx];
 }
