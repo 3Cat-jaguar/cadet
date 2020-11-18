@@ -13,7 +13,14 @@ SRCS = ft_printf.c\
 	   check_specifier.c\
 	   width_or_precision.c\
 	   check_length.c\
-	   modify_str_by_arg.c
+	   modify_str_by_arg.c\
+	   print_type_d.c\
+	   print_type_c.c\
+	   print_type_s.c\
+	   print_type_u.c\
+	   print_type_x.c\
+	   print_type_x_upper.c\
+	   print_type_p.c\
 
 OBJECTS = $(SRCS:.c=.o)
 

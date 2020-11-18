@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 13:43:04 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/17 16:55:30 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/18 17:10:22 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,34 +20,19 @@ char	*modify_str_by_arg(va_list ap, t_arg *arg)
 	result = NULL;
 	spcf = (char)(arg->specifier);
 	if (spcf == 'd' || spcf == 'i')
-		result = ft_itoa(va_arg(ap, int));
+		result = print_type_d(ap, arg);
 	else if (spcf == 'c')
-	{
-		result = (char *)ft_calloc(2, sizeof(char));
-		result[0] = (char)va_arg(ap, int);
-	}
+		result = print_type_c(ap, arg);
 	else if (spcf == 's')
-	{
-		result = va_arg(ap, char *);
-		if (result == NULL)
-			result = ft_strdup("(null)");
-		else
-			result = ft_strdup(result);
-	}
+		result = print_type_s(ap, arg);
 	else if (spcf == 'u')
-		ft_uitoa(va_arg(ap, unsigned int), &result);
+		result = print_type_u(ap, arg);
 	else if (spcf == 'x')
-		ft_itoa_base16(va_arg(ap, unsigned int), &result);
+		result = print_type_x(ap, arg);
 	else if (spcf == 'X')
-	{
-		ft_itoa_base16(va_arg(ap, unsigned int), &result);
-		ft_toupper_str(&result);
-	}
+		result = print_type_x_upper(ap, arg);
 	else if (spcf == 'p')
-	{
-		ft_lltoa_base16(va_arg(ap, long long), &result);
-		result = ft_strjoin("0x", result);
-	}
+		result = print_type_p(ap, arg);
 	free(arg);
 	arg = NULL;
 	return (result);
