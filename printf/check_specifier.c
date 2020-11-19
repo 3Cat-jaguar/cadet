@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 14:35:39 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/16 14:37:58 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/19 11:00:33 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		check_specifier(char c)
 {
 	char	*specifiers;
 
-	specifiers = "cspdiuxXnfge";
+	specifiers = "cspdiuxX%%nfge";
 	while (*specifiers)
 	{
 		if (c == *specifiers)
