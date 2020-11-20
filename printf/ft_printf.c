@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 10:43:39 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/19 16:56:10 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/20 09:28:12 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int		ft_printf(const char *str, ...)
 	write(1, result[0], ft_strlen(result[0]));
 	free(result[0]);
 	result[0] = NULL;
+	free(result[3]);
+	result[3] = NULL;
 	va_end(ap);
 	return (0);
 }
