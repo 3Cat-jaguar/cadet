@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 10:43:39 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/20 10:45:15 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/20 14:47:02 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,19 @@ void	init_variables(int *idx, int *start, t_arg **arg, char **result)
 	result[0] = ft_strdup("");
 }
 
-void	ending(char **result, int start, va_list ap)
+int		ending(char **result, int start, va_list ap)
 {
+	int		len;
+
 	join_str_and_free(result, &result[3][start]);
-	write(1, result[0], ft_strlen(result[0]));
+	len = ft_strlen(result[0]);
+	write(1, result[0], len);
 	free(result[0]);
 	result[0] = NULL;
 	free(result[3]);
 	result[3] = NULL;
 	va_end(ap);
+	return (len);
 }
 
 int		ft_printf(const char *str, ...)
@@ -66,6 +70,5 @@ int		ft_printf(const char *str, ...)
 		}
 		idx++;
 	}
-	ending(result, start, ap);
-	return (0);
+	return (ending(result, start, ap));
 }

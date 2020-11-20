@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_type_p.c                                     :+:      :+:    :+:   */
+/*   print_type_percent.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/18 16:08:04 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/20 15:39:50 by ylee             ###   ########.fr       */
+/*   Created: 2020/11/18 15:51:27 by ylee              #+#    #+#             */
+/*   Updated: 2020/11/20 13:09:56 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-char	*print_type_p(va_list ap, t_arg *arg)
+char	*print_type_percent(t_arg *arg)
 {
 	char	*result;
 
-	if (arg->specifier != 'p')
+	if (arg->specifier != '%')
 		return (0);
-	result = ft_lltoa_base16(va_arg(ap, long long));
-	result = ft_strjoin("0x", result);
+	result = ft_strdup("%");
 	return (result);
 }

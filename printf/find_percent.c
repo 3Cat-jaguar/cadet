@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 13:35:45 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/17 14:23:29 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/20 14:47:11 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@ char	*find_percent(va_list ap, t_arg *arg, char *str, int *idx)
 		return (0);
 	while (check_flags(arg, str[i]) == 1)
 		i++;
-	while ((arg->specifier = check_specifier(str[i])) == 0)
+	while (str[i] && (arg->specifier = check_specifier(str[i])) == 0)
 	{
 		if (str[i] == '.')
-		{
 			arg->dot = 1;
-			i++;
-		}
 		else if ((str[i] >= '1' && str[i] <= '9') || str[i] == '*')
-			i = i + width_or_precision(ap, arg, &str[i]);
+			i = i + width_or_precision(ap, arg, &str[i]) - 1;
 		else if (str[i] == 'l' || str[i] == 'h')
-			i = i + check_length(arg, &str[i]);
+			i = i + check_length(arg, &str[i]) - 1;
+		i++;
 	}
+	if (arg->specifier == 0)
+		return (ft_strdup(&str[*idx]));
 	*idx = i;
 	return (modify_str_by_arg(ap, arg));
 }
