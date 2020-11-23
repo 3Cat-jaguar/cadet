@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 15:47:54 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/18 16:20:06 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/23 10:15:07 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ char	*print_type_d(va_list ap, t_arg *arg)
 	if (arg->specifier != 'd' && arg->specifier != 'i')
 		return (0);
 	result = ft_itoa(va_arg(ap, int));
+	result = apply_width(arg, result);
 	return (result);
 }

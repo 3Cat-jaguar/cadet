@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 16:21:31 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/20 13:11:50 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/23 10:09:55 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ char	*print_type_x(va_list ap, t_arg *arg);
 char	*print_type_x_upper(va_list ap, t_arg *arg);
 char	*print_type_p(va_list ap, t_arg *arg);
 char	*print_type_percent(t_arg *arg);
+char	*apply_width(t_arg *arg, char *str);
 
 #endif

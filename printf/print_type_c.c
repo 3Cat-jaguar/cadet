@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 15:51:27 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/18 16:16:42 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/23 10:12:52 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ char	*print_type_c(va_list ap, t_arg *arg)
 		return (0);
 	result = (char *)ft_calloc(2, sizeof(char));
 	result[0] = (char)va_arg(ap, int);
+	result = apply_width(arg, result);
 	return (result);
 }

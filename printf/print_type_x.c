@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 16:00:39 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/18 16:18:06 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/23 10:18:14 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ char	*print_type_x(va_list ap, t_arg *arg)
 	if (arg->specifier != 'x')
 		return (0);
 	result = ft_itoa_base16(va_arg(ap, unsigned int));
+	result=apply_width(arg,result);
 	return (result);
 }

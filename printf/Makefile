@@ -21,7 +21,8 @@ SRCS = ft_printf.c\
 	   print_type_x.c\
 	   print_type_x_upper.c\
 	   print_type_p.c\
-	   print_type_percent.c
+	   print_type_percent.c\
+	   apply_width.c
 
 OBJECTS = $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 16:03:33 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/18 16:21:40 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/23 10:18:31 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ char	*print_type_x_upper(va_list ap, t_arg *arg)
 	result = print_type_x(ap, arg);
 	result = ft_toupper_str(result);
 	arg->specifier = 'X';
+	result=apply_width(arg,result);
 	return (result);
 }

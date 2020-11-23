@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 16:08:04 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/20 15:39:50 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/23 10:16:59 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ char	*print_type_p(va_list ap, t_arg *arg)
 		return (0);
 	result = ft_lltoa_base16(va_arg(ap, long long));
 	result = ft_strjoin("0x", result);
+	result = apply_width(arg, result);
 	return (result);
 }
