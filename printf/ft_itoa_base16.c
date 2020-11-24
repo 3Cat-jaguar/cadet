@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/02 14:34:41 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/18 17:07:13 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/24 16:57:50 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ char	*ft_itoa_base16(unsigned int num)
 		tmp[idx++] = base[(uni % 16)];
 		uni = uni / 16;
 	}
+	if (num == 0)
+		tmp[idx++] = '0';
 	tmp[idx] = '\0';
 	result = (char *)ft_calloc(idx, sizeof(char));
 	if (!result)

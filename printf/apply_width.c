@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 09:55:41 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/23 15:41:28 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/24 13:47:38 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,12 @@ char	*with_zero(char *result, char *str, int final_len, int str_len)
 {
 	while (--final_len >= 0)
 	{
-		if (--str_len >= 0)
+		if (--str_len >= 0 && str[str_len] != '-')
 			result[final_len] = str[str_len];
 		else
 			result[final_len] = '0';
+		if (str[0] == '-')
+			result[0] = '-';
 	}
 	return (result);
 }

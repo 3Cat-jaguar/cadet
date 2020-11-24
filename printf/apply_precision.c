@@ -6,11 +6,33 @@
 /*   By: ylee </var/mail/ylee>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 13:38:38 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/24 11:48:22 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/24 17:07:39 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+char	*apply_prcs_type_num(t_arg *arg, char *str)
+{
+	int		real_width;
+	int		real_dash;
+	char	*result;
+
+	real_width = arg->width;
+	real_dash = arg->dash;
+	arg->width = arg->precision;
+	if (str[0] == '-')
+		arg->width = arg->width + 1;
+//	else if (str[0] == '0')
+//		str[0] = '\0';
+	arg->dash = 0;
+	arg->zero = 1;
+	result = apply_width(arg, str);
+	arg->zero = 0;
+	arg->dash = real_dash;
+	arg->width = real_width;
+	return (result);
+}
 
 char	*apply_precision(t_arg *arg, char *str)
 {
@@ -29,15 +51,18 @@ char	*apply_precision(t_arg *arg, char *str)
 		arg->dash = 1;
 		final_len = -final_len;
 	}
-	if (spcf != 'c' && spcf != 's' && spcf != 'p')
+	if (spcf == 'd' || spcf == 'i' || spcf == 'u' || spcf == 'x' || spcf == 'X')
 		arg->zero = 0;
-	if (final_len < str_len && arg->specifier == 's')
+	if (spcf == 'd' || spcf == 'i' || spcf == 'u' || spcf == 'x' || spcf == 'X')
+		result = apply_prcs_type_num(arg, str);
+	else if (final_len < str_len)
 	{
 		result = (char *)malloc(sizeof(char) * (final_len + 1));
 		ft_strlcpy(result, str, final_len + 1);
 		free(str);
 		str = NULL;
-		str = result;
 	}
-	return (str);
+	else
+		return (str);
+	return (result);
 }
