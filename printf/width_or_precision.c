@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 13:42:04 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/23 13:21:08 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/25 10:37:26 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int		width_or_precision(va_list ap, t_arg *arg, char *str)
 			arg->width = va_arg(ap, int);
 		else if (arg->dot == 1)
 			arg->precision = va_arg(ap, int);
+		if (arg->dot == 1 && arg->precision < 0)
+			arg->dot = 0;
 		i++;
 	}
 	return (i);

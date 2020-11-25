@@ -6,7 +6,7 @@
 /*   By: ylee </var/mail/ylee>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 13:38:38 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/24 17:07:39 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/25 10:28:02 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ char	*apply_prcs_type_num(t_arg *arg, char *str)
 	arg->width = arg->precision;
 	if (str[0] == '-')
 		arg->width = arg->width + 1;
-//	else if (str[0] == '0')
-//		str[0] = '\0';
+	else if (str[0] == '0' && str[1] == '\0')
+		str[0] = '\0';
 	arg->dash = 0;
 	arg->zero = 1;
 	result = apply_width(arg, str);
@@ -53,7 +53,7 @@ char	*apply_precision(t_arg *arg, char *str)
 	}
 	if (spcf == 'd' || spcf == 'i' || spcf == 'u' || spcf == 'x' || spcf == 'X')
 		arg->zero = 0;
-	if (spcf == 'd' || spcf == 'i' || spcf == 'u' || spcf == 'x' || spcf == 'X')
+	if (spcf == 'd' || spcf == 'i' || spcf == 'u' || spcf == 'x' || spcf == 'X' || spcf == 'p')
 		result = apply_prcs_type_num(arg, str);
 	else if (final_len < str_len)
 	{
