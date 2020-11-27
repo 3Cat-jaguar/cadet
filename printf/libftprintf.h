@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 16:21:31 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/23 14:20:58 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/27 10:31:51 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,9 @@ typedef struct	s_arg
 	int		hh;
 	//specifier
 	int		specifier;
+	char	*str;
+	int		final_len;
+	int		tmp_len;
 }				t_arg;
 
 char	*find_percent(va_list ap, t_arg *arg, char *str, int *idx);
