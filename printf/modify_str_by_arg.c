@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 13:43:04 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/20 13:10:36 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/30 15:40:42 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,5 @@ char	*modify_str_by_arg(va_list ap, t_arg *arg)
 		result = print_type_p(ap, arg);
 	else if (spcf == '%')
 		result = print_type_percent(arg);
-	free(arg);
-	arg = NULL;
 	return (result);
 }

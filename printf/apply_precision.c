@@ -6,7 +6,7 @@
 /*   By: ylee </var/mail/ylee>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 13:38:38 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/25 10:28:02 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/30 14:46:41 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ char	*apply_precision(t_arg *arg, char *str)
 		result = apply_prcs_type_num(arg, str);
 	else if (final_len < str_len)
 	{
+		arg->final_len = final_len;
 		result = (char *)malloc(sizeof(char) * (final_len + 1));
 		ft_strlcpy(result, str, final_len + 1);
 		free(str);

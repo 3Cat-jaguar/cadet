@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 09:55:41 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/24 13:47:38 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/30 15:35:34 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,11 @@ char	*apply_width(t_arg *arg, char *str)
 		final_len = -final_len;
 	}
 	if (final_len <= str_len)
+	{
+		arg->final_len = str_len;
 		return (str);
+	}
+	arg->final_len = final_len;
 	result = (char *)ft_calloc(final_len + 1, sizeof(char));
 	if (arg->dash == 1)
 		result = with_dash(result, str, final_len, str_len);

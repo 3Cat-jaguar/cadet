@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 09:16:13 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/27 10:32:40 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/30 15:45:34 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 t_arg	*ft_init_arg_list(t_arg *arg)
 {
-	arg = (t_arg *)malloc(sizeof(t_arg));
 	if (!arg)
 		return (0);
 	arg->dash = 0;
