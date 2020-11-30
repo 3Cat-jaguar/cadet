@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 10:43:39 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/30 16:19:55 by ylee             ###   ########.fr       */
+/*   Updated: 2020/11/30 16:25:25 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,9 @@ int		ending(char **result, int start, va_list ap, int final_len)
 {
 	int		len;
 
-	result[4] = ft_strdup(&result[3][start]);
-	len = ft_strlen(result[4]);
+	len = ft_strlen(&result[3][start]);
 	if (len != 0)
-		write(1, result[4], len);
+		write(1, &result[3][start], len);
 	final_len += len;
 	free(result[0]);
 	result[0] = NULL;
@@ -46,7 +45,7 @@ int		ft_printf(const char *str, ...)
 	int		idx;
 	int		start;
 	t_arg	*arg;
-	char	*result[5];
+	char	*result[4];
 	int		tmp_len;
 	int		final_len;
 
@@ -54,17 +53,15 @@ int		ft_printf(const char *str, ...)
 	tmp_len = 0;
 	final_len = 0;
 	result[3] = ft_strdup(str);
-	result[4] = NULL;
 	va_start(ap, str);
 	while (str[idx])
 	{
 		if (str[idx] == '%')
 		{
 			result[3][idx] = '\0';
-			result[4] = ft_strdup(&result[3][start]);
-			tmp_len = ft_strlen(result[4]);
+			tmp_len = ft_strlen(&result[3][start]);
 			if (tmp_len != 0)
-				write(1, result[4], tmp_len);
+				write(1, &result[3][start], tmp_len);
 			final_len += tmp_len;
 			result[1] = find_percent(ap, arg, (char *)str, &idx);
 			tmp_len = arg->final_len;
