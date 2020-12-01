@@ -6,13 +6,13 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 10:43:39 by ylee              #+#    #+#             */
-/*   Updated: 2020/12/01 10:08:35 by ylee             ###   ########.fr       */
+/*   Updated: 2020/12/01 14:28:00 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	init_variables(int *idx, int *start, t_arg **arg, char **result)
+void	init_variables(int *idx, int *start, t_arg **arg)
 {
 	*idx = 0;
 	*start = 0;
@@ -20,7 +20,6 @@ void	init_variables(int *idx, int *start, t_arg **arg, char **result)
 		*arg = NULL;
 	*arg = ft_init_arg_list(*arg);
 	(*arg)->final_len = 0;
-	result[0] = ft_strdup("");
 }
 
 void	write_str(t_arg *arg, char *str)
@@ -39,7 +38,10 @@ int		ending(char **result, int start, va_list ap, t_arg *arg)
 	free(result[3]);
 	result[3] = NULL;
 	va_end(ap);
-	return (arg->final_len);
+	len = arg->final_len;
+	free(arg);
+	arg = NULL;
+	return (len);
 }
 
 int		ft_printf(const char *str, ...)
@@ -50,7 +52,7 @@ int		ft_printf(const char *str, ...)
 	t_arg	*arg;
 	char	*result[4];
 
-	init_variables(&idx, &start, &arg, result);
+	init_variables(&idx, &start, &arg);
 	result[3] = ft_strdup(str);
 	va_start(ap, str);
 	while (str[idx])

@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 09:58:23 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/30 14:11:23 by ylee             ###   ########.fr       */
+/*   Updated: 2020/12/01 14:31:56 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ int		main(void)
 //	ptr = &teststr;
 	test1 = 12345;
 	usi = 429876405;
+
+
+	ft_printf("tess : d = %*.*d, i = %i, c = %c, s = %*.*s, p = %*p, u = %u, x = %x, X = %X end\n", 1, 2, test1, test1, testc, 3, 4, teststr, 5, &teststr, usi, usi, usi);
+/*
 	printf("nullc %c nulls %s nulld %d\n", 0, NULL, 0);
 	ft_printf("%%\n");
 	ft_printf("%.5i\n", 2);
@@ -59,6 +63,7 @@ int		main(void)
 	printf("test c : %c\n", testc);
 	ft_printf("tess c : %c\n", testc);
 
+*/
 
 /*	
 	printf("test flag + : % d\n", test1);
@@ -136,5 +141,6 @@ int		main(void)
 	printf("%d\n", &teststr);
 
 */
+	system("leaks a.out > leaks_result_temp; cat leaks_result_temp | grep leaked && rm -rf leaks_result_temp");
 	return (0);
 }
