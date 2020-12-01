@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 15:51:27 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/30 15:32:41 by ylee             ###   ########.fr       */
+/*   Updated: 2020/12/01 09:20:01 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ char	*print_type_percent(t_arg *arg)
 	if (arg->specifier != '%')
 		return (0);
 	result = ft_strdup("%");
-	arg->final_len = 1;
+	arg->tmp_len = 1;
 	result = apply_precision(arg, result);
-	result = apply_width(arg,result);
+	result = apply_width(arg, result);
 	return (result);
 }

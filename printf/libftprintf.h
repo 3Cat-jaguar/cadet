@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 16:21:31 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/27 10:31:51 by ylee             ###   ########.fr       */
+/*   Updated: 2020/12/01 10:09:52 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,19 @@ char			*ft_uitoa(unsigned int num);
 
 typedef struct	s_arg
 {
-	//flags
 	int		dash;
 	int		plus;
 	int		space;
 	int		sharp;
 	int		zero;
-	//width
 	int		width;
-	//.precision
 	int		dot;
 	int		precision;
-	//length
 	int		l;
 	int		ll;
 	int		h;
 	int		hh;
-	//specifier
 	int		specifier;
-	char	*str;
 	int		final_len;
 	int		tmp_len;
 }				t_arg;

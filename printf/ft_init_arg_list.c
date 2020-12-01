@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 09:16:13 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/30 15:45:34 by ylee             ###   ########.fr       */
+/*   Updated: 2020/12/01 10:09:59 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ t_arg	*ft_init_arg_list(t_arg *arg)
 	arg->h = 0;
 	arg->hh = 0;
 	arg->specifier = 0;
-	arg->str = NULL;
-	arg->final_len = 0;
 	arg->tmp_len = 0;
 	return (arg);
 }

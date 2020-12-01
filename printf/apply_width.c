@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 09:55:41 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/30 15:35:34 by ylee             ###   ########.fr       */
+/*   Updated: 2020/12/01 09:48:24 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ char	*with_dash(char *result, char *str, int final_len, int str_len)
 			result[idx] = ' ';
 		idx++;
 	}
+	free(str);
+	str = NULL;
 	return (result);
 }
 
@@ -39,6 +41,8 @@ char	*with_zero(char *result, char *str, int final_len, int str_len)
 		if (str[0] == '-')
 			result[0] = '-';
 	}
+	free(str);
+	str = NULL;
 	return (result);
 }
 
@@ -51,6 +55,8 @@ char	*without(char *result, char *str, int final_len, int str_len)
 		else
 			result[final_len] = ' ';
 	}
+	free(str);
+	str = NULL;
 	return (result);
 }
 
@@ -60,7 +66,7 @@ char	*apply_width(t_arg *arg, char *str)
 	int		final_len;
 	char	*result;
 
-	str_len = ft_strlen(str);
+	str_len = arg->tmp_len;
 	if (arg->specifier == 'c')
 		str_len = 1;
 	final_len = arg->width;
@@ -70,11 +76,8 @@ char	*apply_width(t_arg *arg, char *str)
 		final_len = -final_len;
 	}
 	if (final_len <= str_len)
-	{
-		arg->final_len = str_len;
 		return (str);
-	}
-	arg->final_len = final_len;
+	arg->tmp_len = final_len;
 	result = (char *)ft_calloc(final_len + 1, sizeof(char));
 	if (arg->dash == 1)
 		result = with_dash(result, str, final_len, str_len);
@@ -82,7 +85,5 @@ char	*apply_width(t_arg *arg, char *str)
 		result = with_zero(result, str, final_len, str_len);
 	else
 		result = without(result, str, final_len, str_len);
-	free(str);
-	str = NULL;
 	return (result);
 }
