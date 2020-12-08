@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 16:08:04 by ylee              #+#    #+#             */
-/*   Updated: 2020/12/01 14:31:26 by ylee             ###   ########.fr       */
+/*   Updated: 2020/12/08 14:36:08 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*print_type_p(va_list ap, t_arg *arg)
 
 	if (arg->specifier != 'p')
 		return (0);
-	result = ft_lltoa_base16(va_arg(ap, long long));
+	result = ft_ulltoa_base16(va_arg(ap, unsigned long long));
 	arg->tmp_len = ft_strlen(result);
 	result = apply_precision(arg, result);
 	tmp = ft_strjoin("0x", result);

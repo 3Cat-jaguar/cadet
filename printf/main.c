@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 09:58:23 by ylee              #+#    #+#             */
-/*   Updated: 2020/12/01 15:11:42 by ylee             ###   ########.fr       */
+/*   Updated: 2020/12/08 10:17:21 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,37 @@ int		main(void)
 //	char		*test2;
 	unsigned int	usi;
 	float		testfloat;
+	long long int ull;
+	short int	si;
 
 	testc = 'a';
 	teststr = "hello";
 	testfloat = 123;
 //	ptr = &teststr;
-	test1 = 12345;
+	test1 = -123456789;
+	ull = 9223372036854775807;
 	usi = 429876405;
+	si = (short int)test1;
 
+	printf("%%hd : |%hd|\n", si);
+	printf("%%d : |%d|\n", (int)si);
+	printf("%%d : |%d|\n", test1);
+/*
+	printf("%%hhd : |%hhd|\n", ull);
+	printf("%%hd : |%hd|\n", ull);
+	printf("%%d : |%d|\n",  ull);
+	printf("%%ld : |%ld|\n",  ull);
+	printf("%%lld : |%lld|\n",  ull);
+
+*/
+//	printf("%%i : |%i| , %%hi : |%hi|, %%hhi : |%hhi| \n", 1000000, (short)1000000, (char)1000000);
+//	ft_printf("%%i : |%i| , %%hi : |%hi|, %%hhi : |%hhi| \n", 1000000, (short)1000000, (char)1000000);
+
+
+/*
 	printf("|%-4.c|\n", 'y');
 	ft_printf("|%-4.c|\n", 'y');
 
-/*
 	printf("nullc %c nulls %s nulld %d\n", 0, NULL, 0);
 	ft_printf("%%\n");
 	ft_printf("%.5i\n", 2);

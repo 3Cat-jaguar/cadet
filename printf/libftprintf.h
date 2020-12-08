@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 16:21:31 by ylee              #+#    #+#             */
-/*   Updated: 2020/12/01 10:09:52 by ylee             ###   ########.fr       */
+/*   Updated: 2020/12/08 14:45:32 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,16 @@
 # include "libft/libft.h"
 
 int				ft_printf(const char *str, ...);
-char			*ft_itoa_base16(unsigned int num);
+char			*ft_uitoa_base16(unsigned int num);
 char			*ft_toupper_str(char *str);
 void			ft_put_unsigned_int_fd(unsigned int n, int fd);
-char			*ft_lltoa_base16(long long num);
+char			*ft_ultoa_base16(unsigned long num);
+char			*ft_ulltoa_base16(unsigned long long num);
 char			*ft_uitoa(unsigned int num);
+char			*ft_lltoa(long long int num);
+char			*ft_ltoa (long int num);
+char			*ft_ultoa(unsigned long int num);
+char			*ft_ulltoa(unsigned long long int num);
 
 typedef struct	s_arg
 {
@@ -59,5 +64,6 @@ char	*print_type_p(va_list ap, t_arg *arg);
 char	*print_type_percent(t_arg *arg);
 char	*apply_width(t_arg *arg, char *str);
 char	*apply_precision(t_arg *arg, char *str);
+char	*print_type_f(va_list ap, t_arg *arg);
 
 #endif

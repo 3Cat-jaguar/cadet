@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 13:38:38 by ylee              #+#    #+#             */
-/*   Updated: 2020/12/01 09:52:00 by ylee             ###   ########.fr       */
+/*   Updated: 2020/12/07 14:16:21 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*apply_prcs_type_num(t_arg *arg, char *str)
 	real_width = arg->width;
 	real_dash = arg->dash;
 	arg->width = arg->precision;
-	if (str[0] == '-')
+	if (str[0] == '-' || arg->plus == 1 || arg->space == 1)
 		arg->width = arg->width + 1;
 	else if (str[0] == '0' && str[1] == '\0')
 	{

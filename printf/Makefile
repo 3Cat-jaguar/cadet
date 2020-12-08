@@ -2,10 +2,11 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
 SRCS = ft_printf.c\
-	   ft_itoa_base16.c\
+	   ft_uitoa_base16.c\
 	   ft_toupper_str.c\
 	   ft_put_unsigned_int_fd.c\
-	   ft_lltoa_base16.c\
+	   ft_ultoa_base16.c\
+	   ft_ulltoa_base16.c\
 	   ft_uitoa.c\
 	   find_percent.c\
 	   ft_init_arg_list.c\
@@ -23,9 +24,17 @@ SRCS = ft_printf.c\
 	   print_type_p.c\
 	   print_type_percent.c\
 	   apply_width.c\
-	   apply_precision.c
+	   apply_precision.c\
+	   ft_lltoa.c\
+	   ft_ltoa.c\
+	   ft_ultoa.c\
+	   ft_ulltoa.c
+
+B_SRCS = print_type_f.c 
 
 OBJECTS = $(SRCS:.c=.o)
+
+B_OBJS = $(B_SRCS:.c=.o)
 
 all : $(NAME)
 
@@ -35,8 +44,8 @@ $(NAME) : $(OBJECTS)
 	$(CC) $(CFLAGS) -c $(SRCS)
 	ar rcs $(NAME) $(OBJECTS)
 
-bonus : $(OBJECTS) $(B_OBJS)
-	ar rc $(NAME) $^
+bonus : $(B_OBJS) $(NAME)
+	ar rcs $(NAME) $(B_OBJS)
 
 
 $(B_OBJS) : $(B_SRCS)
@@ -44,7 +53,7 @@ $(B_OBJS) : $(B_SRCS)
 
 clean :
 	$(MAKE)	clean -C ./libft
-	rm -f $(OBJECTS)
+	rm -f $(OBJECTS) $(B_OBJS)
 
 fclean : clean
 	rm -f $(NAME)

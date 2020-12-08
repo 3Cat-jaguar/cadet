@@ -1,27 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_type_x_upper.c                               :+:      :+:    :+:   */
+/*   ft_ltoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/18 16:03:33 by ylee              #+#    #+#             */
-/*   Updated: 2020/12/04 10:45:21 by ylee             ###   ########.fr       */
+/*   Created: 2020/10/14 15:32:09 by ylee              #+#    #+#             */
+/*   Updated: 2020/12/08 13:52:28 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-char	*print_type_x_upper(va_list ap, t_arg *arg)
+char	*ft_ltoa(long int n)
 {
-	char	*result;
+	unsigned long	num;
+	char		str[25];
+	int			idx;
+	char		*result;
 
-	if (arg->specifier != 'X')
+	idx = 0;
+	if (n < 0)
+		num = (unsigned long)-n;
+	else
+		num = (unsigned long)n;
+	while (num > 0)
+	{
+		str[idx++] = num % 10 + '0';
+		num = num / 10;
+	}
+	if (n < 0)
+		str[idx++] = '-';
+	else if (n == 0)
+		str[idx++] = '0';
+	str[idx] = '\0';
+	if (!(result = (char *)ft_calloc(ft_strlen(str) + 1, sizeof(char))))
 		return (0);
-	arg->specifier = 'x';
-	result = print_type_x(ap, arg);
-	result = ft_toupper_str(result);
-	arg->specifier = 'X';
-	arg->tmp_len = ft_strlen(result);
+	while (--idx >= 0)
+		result[ft_strlen(str) - 1 - idx] = str[idx];
 	return (result);
 }

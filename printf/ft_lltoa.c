@@ -1,41 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lltoa_base16.c                                  :+:      :+:    :+:   */
+/*   ft_lltoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/02 14:34:41 by ylee              #+#    #+#             */
-/*   Updated: 2020/11/20 15:39:28 by ylee             ###   ########.fr       */
+/*   Created: 2020/10/14 15:32:09 by ylee              #+#    #+#             */
+/*   Updated: 2020/12/08 10:10:17 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-char	*ft_lltoa_base16(long long num)
+char	*ft_lltoa(long long int n)
 {
-	char				*result;
-	char				*base;
-	char				tmp[25];
-	unsigned long long	ull;
-	int					idx;
+	unsigned long long	num;
+	char		str[25];
+	int			idx;
+	char		*result;
 
-	base = "0123456789abcdef";
-	ull = (unsigned long long)num;
 	idx = 0;
-	while (ull != 0)
+	if (n < 0)
+		num = (unsigned long long)-n;
+	else
+		num = (unsigned long long)n;
+	while (num > 0)
 	{
-		tmp[idx++] = base[(int)(ull % 16)];
-		ull = ull / 16;
+		str[idx++] = num % 10 + '0';
+		num = num / 10;
 	}
-	if (num == 0)
-		tmp[idx++] = '0';
-	tmp[idx] = '\0';
-	result = (char *)ft_calloc(idx, sizeof(char));
-	if (!result)
+	if (n < 0)
+		str[idx++] = '-';
+	else if (n == 0)
+		str[idx++] = '0';
+	str[idx] = '\0';
+	if (!(result = (char *)ft_calloc(ft_strlen(str) + 1, sizeof(char))))
 		return (0);
 	while (--idx >= 0)
-		result[(int)ull++] = tmp[idx];
-	result[(int)ull] = '\0';
+		result[ft_strlen(str) - 1 - idx] = str[idx];
 	return (result);
 }
