@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 13:38:38 by ylee              #+#    #+#             */
-/*   Updated: 2020/12/07 14:16:21 by ylee             ###   ########.fr       */
+/*   Updated: 2020/12/16 09:46:01 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,16 +56,11 @@ char	*apply_precision(t_arg *arg, char *str)
 	int		final_len;
 	char	spcf;
 
-	if (arg->dot != 1)
+	if (arg->dot != 1 || arg->precision < 0)
 		return (str);
 	str_len = arg->tmp_len;
 	final_len = arg->precision;
 	spcf = arg->specifier;
-	if (final_len < 0)
-	{
-		arg->dash = 1;
-		final_len = -final_len;
-	}
 	if (spcf == 'd' || spcf == 'i' || spcf == 'u' || spcf == 'x' || spcf == 'X')
 		arg->zero = 0;
 	if (spcf == 'd' || spcf == 'i' || spcf == 'u' \

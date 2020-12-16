@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 16:00:39 by ylee              #+#    #+#             */
-/*   Updated: 2020/12/08 14:50:28 by ylee             ###   ########.fr       */
+/*   Updated: 2020/12/16 09:38:34 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ char	*print_type_x(va_list ap, t_arg *arg)
 	arg->tmp_len = ft_strlen(result);
 	result = apply_precision(arg, result);
 	arg->tmp_len = ft_strlen(result);
+	if (arg->width < 0)
+	{
+		arg->dash = 1;
+		arg->width = arg->width * (-1);
+	}
 	if (arg->zero == 1)
 	{
 		if (arg->sharp == 1 && usi != 0 && arg->width >= 2)
