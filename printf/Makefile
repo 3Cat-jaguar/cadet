@@ -30,7 +30,12 @@ SRCS = ft_printf.c\
 	   ft_ultoa.c\
 	   ft_ulltoa.c
 
-B_SRCS = print_type_f.c 
+B_SRCS = print_type_n.c\
+		 print_type_f.c\
+		 print_type_g.c\
+		 print_type_e.c\
+		 modify_str_by_arg_bonus.c
+
 
 OBJECTS = $(SRCS:.c=.o)
 
