@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 09:58:23 by ylee              #+#    #+#             */
-/*   Updated: 2020/12/15 13:37:48 by ylee             ###   ########.fr       */
+/*   Updated: 2020/12/17 16:53:18 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ int		main(void)
 	usi = 429876405;
 	si = (short int)test1;
 
-	printf("%d\n", printf("|%#0*.*x|\n", -4, 4, 1));
-	ft_printf("%d\n", ft_printf("|%#0*.*x|\n", -4, 4, 1));
+	printf("%d\n", printf("||\n", ));
 	
 /*
 	printf("%%hd : |%hd|\n", si);
