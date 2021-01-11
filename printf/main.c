@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 09:58:23 by ylee              #+#    #+#             */
-/*   Updated: 2020/12/18 16:34:44 by ylee             ###   ########.fr       */
+/*   Updated: 2021/01/11 16:10:13 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,21 @@ int		main(void)
 
 	testc = 'a';
 	teststr = "hello";
-	testfloat = 123;
+	testfloat = 1.5;
 //	ptr = &teststr;
 	test1 = -123456789;
 	ull = 9223372036854775807;
 	usi = 429876405;
 	si = (short int)test1;
 
+	printf("test float : |%f|\n", testfloat);
+	ft_printf("test float : |%f|\n", testfloat);
+	/*
 	printf("%d\n", printf("%s|%n|\n", "%n : ", &test1));
 	printf("%d\n", test1);
 	ft_printf("test %2.*k\n", 3);
 	printf("test %2.*k\n", 3);
 	
-/*
 	printf("%%hd : |%hd|\n", si);
 	printf("%%d : |%d|\n", (int)si);
 	printf("%%d : |%d|\n", test1);

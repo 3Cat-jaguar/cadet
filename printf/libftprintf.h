@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 16:21:31 by ylee              #+#    #+#             */
-/*   Updated: 2020/12/17 15:43:02 by ylee             ###   ########.fr       */
+/*   Updated: 2021/01/11 11:03:30 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ char	*print_type_n(va_list ap, t_arg *arg);
 char	*print_type_f(va_list ap, t_arg *arg);
 char	*print_type_g(va_list ap, t_arg *arg);
 char	*print_type_e(va_list ap, t_arg *arg);
+char	*testf(float num);
 
 #endif

@@ -33,18 +33,16 @@ SRCS = ft_printf.c\
 	   print_type_f.c\
 	   print_type_g.c\
 	   print_type_e.c\
-	   modify_str_by_arg_bonus.c
-
-B_SRCS = print_type_n.c\
-		 print_type_f.c\
-		 print_type_g.c\
-		 print_type_e.c\
-		 modify_str_by_arg_bonus.c
+	   modify_str_by_arg_bonus.c\
+	   print_type_n.c\
+	   print_type_f.c\
+	   print_type_g.c\
+	   print_type_e.c\
+	   modify_str_by_arg_bonus.c\
+	   testf.c
 
 
 OBJECTS = $(SRCS:.c=.o)
-
-B_OBJS = $(B_SRCS:.c=.o)
 
 all : $(NAME)
 
@@ -54,12 +52,7 @@ $(NAME) : $(OBJECTS)
 	$(CC) $(CFLAGS) -c $(SRCS)
 	ar rcs $(NAME) $(OBJECTS)
 
-bonus : $(B_OBJS) $(NAME)
-	ar rcs $(NAME) $(B_OBJS)
-
-
-$(B_OBJS) : $(B_SRCS)
-	$(CC) $(CFLAGS) -c $^
+bonus : all
 
 clean :
 	$(MAKE)	clean -C ./libft
