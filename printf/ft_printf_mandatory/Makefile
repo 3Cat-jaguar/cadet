@@ -4,7 +4,6 @@ NAME = libftprintf.a
 SRCS = ft_printf.c\
 	   ft_uitoa_base16.c\
 	   ft_toupper_str.c\
-	   ft_put_unsigned_int_fd.c\
 	   ft_ultoa_base16.c\
 	   ft_ulltoa_base16.c\
 	   ft_uitoa.c\
@@ -29,18 +28,6 @@ SRCS = ft_printf.c\
 	   ft_ltoa.c\
 	   ft_ultoa.c\
 	   ft_ulltoa.c\
-	   print_type_n.c\
-	   print_type_f.c\
-	   print_type_g.c\
-	   print_type_e.c\
-	   modify_str_by_arg_bonus.c\
-	   print_type_n.c\
-	   print_type_f.c\
-	   print_type_g.c\
-	   print_type_e.c\
-	   modify_str_by_arg_bonus.c\
-	   testf.c
-
 
 OBJECTS = $(SRCS:.c=.o)
 

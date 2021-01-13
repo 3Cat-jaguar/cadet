@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 16:21:31 by ylee              #+#    #+#             */
-/*   Updated: 2021/01/12 16:41:16 by ylee             ###   ########.fr       */
+/*   Updated: 2021/01/13 09:31:57 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 int				ft_printf(const char *str, ...);
 char			*ft_uitoa_base16(unsigned int num);
 char			*ft_toupper_str(char *str);
-void			ft_put_unsigned_int_fd(unsigned int n, int fd);
 char			*ft_ultoa_base16(unsigned long num);
 char			*ft_ulltoa_base16(unsigned long long num);
 char			*ft_uitoa(unsigned int num);
@@ -54,7 +53,6 @@ int		check_specifier(char c);
 int		width_or_precision(va_list ap, t_arg *arg, char *str);
 int		check_length(t_arg *arg, char *str);
 char	*modify_str_by_arg(va_list ap, t_arg *arg);
-char	*modify_str_by_arg_bonus(va_list ap, t_arg *arg);
 char	*print_type_d(va_list ap, t_arg *arg);
 char	*print_type_c(va_list ap, t_arg *arg);
 char	*print_type_s(va_list ap, t_arg *arg);
@@ -65,10 +63,5 @@ char	*print_type_p(va_list ap, t_arg *arg);
 char	*print_type_percent(t_arg *arg);
 char	*apply_width(t_arg *arg, char *str);
 char	*apply_precision(t_arg *arg, char *str);
-char	*print_type_n(va_list ap, t_arg *arg);
-char	*print_type_f(va_list ap, t_arg *arg);
-char	*print_type_g(va_list ap, t_arg *arg);
-char	*print_type_e(va_list ap, t_arg *arg);
-char	*testf(float num);
 
 #endif
