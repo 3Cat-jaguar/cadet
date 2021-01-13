@@ -6,26 +6,21 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 15:56:19 by ylee              #+#    #+#             */
-/*   Updated: 2020/12/08 14:25:47 by ylee             ###   ########.fr       */
+/*   Updated: 2021/01/13 12:08:59 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-char	*print_type_u(va_list ap, t_arg *arg)
+char	*printf_type_u_bonus(t_arg *arg, unsigned long long int usll)
 {
-	char	*result;
-	unsigned long long int	usll;
-	unsigned long int		usl;
-	unsigned int			usi;
-	unsigned short int		uss;
-	unsigned char			usc;
+	char				*result;
+	unsigned long int	usl;
+	unsigned short int	uss;
+	unsigned char		usc;
 
-	if (arg->specifier != 'u')
-		return (0);
-	usll = va_arg(ap, unsigned long long int);
+	result = NULL;
 	usl = (unsigned long int)usll;
-	usi = (unsigned int)usll;
 	uss = (unsigned short int)usll;
 	usc = (unsigned char)usll;
 	if (arg->hh == 1)
@@ -36,6 +31,21 @@ char	*print_type_u(va_list ap, t_arg *arg)
 		result = ft_ulltoa(usll);
 	else if (arg->l == 1)
 		result = ft_ultoa(usl);
+	return (result);
+}
+
+char	*print_type_u(va_list ap, t_arg *arg)
+{
+	char					*result;
+	unsigned long long int	usll;
+	unsigned int			usi;
+
+	if (arg->specifier != 'u')
+		return (0);
+	usll = va_arg(ap, unsigned long long int);
+	usi = (unsigned int)usll;
+	if (arg->hh == 1 || arg->h == 1 || arg->l == 1 || arg->ll == 1)
+		result = printf_type_u_bonus(arg, usll);
 	else
 		result = ft_uitoa(usi);
 	arg->tmp_len = ft_strlen(result);

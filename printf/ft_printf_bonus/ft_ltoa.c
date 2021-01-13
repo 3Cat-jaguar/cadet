@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/14 15:32:09 by ylee              #+#    #+#             */
-/*   Updated: 2020/12/08 13:52:28 by ylee             ###   ########.fr       */
+/*   Updated: 2021/01/13 11:23:14 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 char	*ft_ltoa(long int n)
 {
 	unsigned long	num;
-	char		str[25];
-	int			idx;
-	char		*result;
+	char			str[25];
+	int				idx;
+	char			*result;
 
 	idx = 0;
 	if (n < 0)

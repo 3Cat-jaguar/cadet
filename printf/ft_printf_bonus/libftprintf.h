@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 16:21:31 by ylee              #+#    #+#             */
-/*   Updated: 2021/01/12 16:43:32 by ylee             ###   ########.fr       */
+/*   Updated: 2021/01/13 15:26:34 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,28 +47,28 @@ typedef struct	s_arg
 	int		tmp_len;
 }				t_arg;
 
-char	*find_percent(va_list ap, t_arg *arg, char *str, int *idx);
-t_arg	*ft_init_arg_list(t_arg *arg);
-int		check_flags(t_arg *arg, char c);
-int		check_specifier(char c);
-int		width_or_precision(va_list ap, t_arg *arg, char *str);
-int		check_length(t_arg *arg, char *str);
-char	*modify_str_by_arg(va_list ap, t_arg *arg);
-char	*modify_str_by_arg_bonus(va_list ap, t_arg *arg);
-char	*print_type_d(va_list ap, t_arg *arg);
-char	*print_type_c(va_list ap, t_arg *arg);
-char	*print_type_s(va_list ap, t_arg *arg);
-char	*print_type_u(va_list ap, t_arg *arg);
-char	*print_type_x(va_list ap, t_arg *arg);
-char	*print_type_x_upper(va_list ap, t_arg *arg);
-char	*print_type_p(va_list ap, t_arg *arg);
-char	*print_type_percent(t_arg *arg);
-char	*apply_width(t_arg *arg, char *str);
-char	*apply_precision(t_arg *arg, char *str);
-char	*print_type_n(va_list ap, t_arg *arg);
-char	*print_type_f(va_list ap, t_arg *arg);
-char	*print_type_g(va_list ap, t_arg *arg);
-char	*print_type_e(va_list ap, t_arg *arg);
-char	*testf(float num);
+char			*find_percent(va_list ap, t_arg *arg, char *str, int *idx);
+t_arg			*ft_init_arg_list(t_arg *arg);
+int				check_flags(t_arg *arg, char c);
+int				check_specifier(char c);
+int				width_or_precision(va_list ap, t_arg *arg, char *str);
+int				check_length(t_arg *arg, char *str);
+char			*modify_str_by_arg(va_list ap, t_arg *arg);
+char			*modify_str_by_arg_bonus(va_list ap, t_arg *arg);
+char			*print_type_d(va_list ap, t_arg *arg);
+char			*print_type_c(va_list ap, t_arg *arg);
+char			*print_type_s(va_list ap, t_arg *arg);
+char			*print_type_u(va_list ap, t_arg *arg);
+char			*print_type_x(va_list ap, t_arg *arg);
+char			*print_type_x_upper(va_list ap, t_arg *arg);
+char			*print_type_p(va_list ap, t_arg *arg);
+char			*print_type_percent(t_arg *arg);
+char			*apply_width(t_arg *arg, char *str);
+char			*apply_precision(t_arg *arg, char *str);
+char			*print_type_n(va_list ap, t_arg *arg);
+char			*print_type_f(va_list ap, t_arg *arg);
+char			*print_type_g(va_list ap, t_arg *arg);
+char			*print_type_e(va_list ap, t_arg *arg);
+char			*testf(float num);
 
 #endif

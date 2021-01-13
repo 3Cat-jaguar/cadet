@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 09:55:41 by ylee              #+#    #+#             */
-/*   Updated: 2020/12/07 14:16:24 by ylee             ###   ########.fr       */
+/*   Updated: 2021/01/13 11:20:49 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*with_zero(char *result, char *str, int final_len, int str_len)
 	{
 		if (--str_len > 0)
 			result[final_len] = str[str_len];
-		else if (str_len == 0 && (result[0] == 'd' || result[0] == 'i') 
+		else if (str_len == 0 && (result[0] == 'd' || result[0] == 'i')\
 				&& (str[0] == '-' || str[0] == '+' || str[0] == ' '))
 		{
 			result[final_len] = '0';
@@ -44,7 +44,8 @@ char	*with_zero(char *result, char *str, int final_len, int str_len)
 		}
 		else if (str_len == 0)
 			result[final_len] = str[str_len];
-		else if (result[final_len] != '-' && result[final_len] != '+' && result[final_len] != ' ')
+		else if (result[final_len] != '-' && result[final_len] != '+'\
+				&& result[final_len] != ' ')
 			result[final_len] = '0';
 	}
 	free(str);

@@ -6,11 +6,19 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 13:35:45 by ylee              #+#    #+#             */
-/*   Updated: 2020/12/17 15:47:32 by ylee             ###   ########.fr       */
+/*   Updated: 2021/01/13 15:03:58 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+char	*modify_str(va_list ap, t_arg *arg)
+{
+	if (arg->specifier == 'n' || arg->specifier == 'f'\
+			|| arg->specifier == 'g' || arg->specifier == 'e')
+		return (modify_str_by_arg_bonus(ap, arg));
+	return (modify_str_by_arg(ap, arg));
+}
 
 char	*find_percent(va_list ap, t_arg *arg, char *str, int *idx)
 {
@@ -36,7 +44,5 @@ char	*find_percent(va_list ap, t_arg *arg, char *str, int *idx)
 	if (arg->specifier == 0)
 		return (ft_strdup(&str[*idx]));
 	*idx = i;
-	if (arg->specifier == 'n' || arg->specifier == 'f' || arg->specifier == 'g' || arg->specifier == 'e')
-		return (modify_str_by_arg_bonus(ap, arg));
-	return (modify_str_by_arg(ap, arg));
+	return (modify_str(ap, arg));
 }
