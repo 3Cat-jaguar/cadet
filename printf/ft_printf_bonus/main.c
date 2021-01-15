@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 09:58:23 by ylee              #+#    #+#             */
-/*   Updated: 2021/01/11 16:10:13 by ylee             ###   ########.fr       */
+/*   Updated: 2021/01/15 16:58:51 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ int		main(void)
 
 	testc = 'a';
 	teststr = "hello";
-	testfloat = 1.5;
+	testfloat = 0.85;
 //	ptr = &teststr;
 	test1 = -123456789;
 	ull = 9223372036854775807;
 	usi = 429876405;
 	si = (short int)test1;
 
-	printf("test float : |%f|\n", testfloat);
-	ft_printf("test float : |%f|\n", testfloat);
+	printf("test f : |%f|\n", testfloat);
+	ft_printf("test f : |%f|\n", testfloat);
 	/*
 	printf("%d\n", printf("%s|%n|\n", "%n : ", &test1));
 	printf("%d\n", test1);
@@ -169,6 +169,6 @@ int		main(void)
 
 */
 
-//	system("leaks a.out > leaks_result_temp; cat leaks_result_temp | grep leaked && rm -rf leaks_result_temp");
+	system("leaks a.out > leaks_result_temp; cat leaks_result_temp | grep leaked && rm -rf leaks_result_temp");
 	return (0);
 }
