@@ -6,14 +6,15 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/23 15:35:23 by ylee              #+#    #+#             */
-/*   Updated: 2021/01/15 16:59:31 by ylee             ###   ########.fr       */
+/*   Updated: 2021/01/18 16:18:14 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include <stdio.h>
 
-void	itobit(int size, unsigned f)
+/*
+void	itobit(int size, unsigned long long f)
 {
 	int		i;
 	int		j;
@@ -32,9 +33,11 @@ void	itobit(int size, unsigned f)
 	printf("\n");
 }
 
-long long	power_n(int n, int k)
+*/
+
+unsigned long long	power_n(int n, int k)
 {
-	long long	result;
+	unsigned long long	result;
 
 	result = 1;
 	while (k > 0)
@@ -45,21 +48,21 @@ long long	power_n(int n, int k)
 	return (result);
 }
 
-char	*ft_uitoa_base2(unsigned int num)
+char	*ft_ultoa_base2(unsigned long long num)
 {
 	char			*base;
 	char			*result;
-	char			tmp[32];
-	unsigned int	uni;
+	char			tmp[64];
+	unsigned long long	unl;
 	int				idx;
 
 	base = "01";
-	uni = (unsigned int)num;
+	unl = num;
 	idx = 0;
-	while (uni != 0)
+	while (unl != 0)
 	{
-		tmp[idx++] = base[(uni % 2)];
-		uni = uni / 2;
+		tmp[idx++] = base[(unl % 2)];
+		unl = unl / 2;
 	}
 	if (num == 0)
 		tmp[idx++] = '0';
@@ -68,16 +71,16 @@ char	*ft_uitoa_base2(unsigned int num)
 	if (!result)
 		return (0);
 	while (--idx >= 0)
-		result[(int)uni++] = tmp[idx];
-	result[(int)uni] = '\0';
+		result[(int)unl++] = tmp[idx];
+	result[(int)unl] = '\0';
 	return (result);
 }
 
-char	*testf(float num)
+char	*testf(double num)
 {
-	unsigned	f;
-	unsigned	copy;
-	float		realf;
+	unsigned long long	f;
+	unsigned long long	copy;
+	double		realf;
 	int			size;
 	int			i;
 	int			j;
@@ -86,8 +89,8 @@ char	*testf(float num)
 	int			frac;
 	int			jungsu;
 	char		*result;
-	int			sosu;
-	long long	real_sosu;
+	unsigned long long	sosu;
+	unsigned long long	real_sosu;
 	char		*sosu_string;
 	char		*sosu_string_base2;
 	int			sosu_base2_len;
@@ -95,17 +98,20 @@ char	*testf(float num)
 	char		*tmp;
 
 	realf = num;
-	f = *(unsigned *)&realf;
+	f = *(unsigned long long*)&realf;
 	copy = f;
-	size = sizeof(float);
+	size = sizeof(unsigned long long);
 	i = 0;
 	j = 0;
 	tmp = NULL;
 	printf("f num : %f\n", realf);
-	itobit(size, f);
+	sosu_string_base2 = ft_ultoa_base2(f);
+	printf("realf : %s\n", sosu_string_base2);
+	free(sosu_string_base2);
+	sosu_string_base2 = NULL;
 	minus = (f >> (size * 8 - 1)) & 1;
 	printf("minus? : %d\n", minus);
-	exp = (f >> (size * 8 - 9)) - (minus * 256) - 127;
+	exp = (f >> (size * 8 - 12)) - (minus * power_n(2, 11)) - 1023;
 	printf("exp? : %d\n", exp);
 	frac = 0;
 	if (exp == 0)
@@ -114,17 +120,21 @@ char	*testf(float num)
 		jungsu = 0;
 	else
 	{
-		jungsu = (f << 9) >> (size * 8 - exp);
+		jungsu = (f << 12) >> (size * 8 - exp);
 		printf("jungsu bit : %d\n", jungsu);
 		jungsu = jungsu + (int)power_n(2, exp);
 		printf("jungsu : %d\n", jungsu);
 	}
 	if (exp <= 0)
-		sosu = (((f << 9) >> 9) + (int)power_n(2, size * 8 - 9)) >> exp;
+		sosu = (((f << 12) >> 12) + (unsigned long long)power_n(2, size * 8 - 13));
 	else
-		sosu = (f << (9 + exp)) >> (9 + exp);
-	printf("sosu : %d\n", sosu);
-	sosu_string_base2 = ft_uitoa_base2((unsigned)sosu);
+		sosu = (f << (12 + exp));
+	printf("sosu : %llu\n", sosu);
+	sosu_string_base2 = ft_ultoa_base2(sosu);
+	printf("sosu_base2 : %s\n", sosu_string_base2);
+	sosu = sosu >> (12 + exp);
+	printf("sosu : %llu\n", sosu);
+	sosu_string_base2 = ft_ultoa_base2(sosu);
 	printf("sosu_base2 : %s\n", sosu_string_base2);
 	sosu_base2_len = (int)ft_strlen(sosu_string_base2);
 	real_sosu = 0;
@@ -132,13 +142,13 @@ char	*testf(float num)
 	{
 		if ((real_sosu * 10) + ((sosu_string_base2[i] - '0') * power_n(5, i + 1)) > 0)
 			real_sosu = (real_sosu * 10) + ((sosu_string_base2[i] - '0') * power_n(5, i + 1));
-		printf("real_sosu : %lld\n", real_sosu);
+		printf("real_sosu : %llu\n", real_sosu);
 		i++;
 	}
 	free(sosu_string_base2);
 	sosu_string_base2 = NULL;
-	real_sosu = real_sosu * power_n(5, (size * 8 - 9 - exp) - sosu_base2_len);
-	printf("real_sosu : %lld\n", real_sosu);
+	real_sosu = real_sosu * power_n(5, (size * 8 - 12 - exp) - sosu_base2_len);
+	printf("final real_sosu : %lld\n", real_sosu);
 	sosu_string = ft_lltoa(real_sosu);
 	sosu_string_cut = ft_strdup(sosu_string);
 	sosu_string_cut[6] = '\0';
