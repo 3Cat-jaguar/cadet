@@ -4,7 +4,6 @@ NAME = libftprintf.a
 SRCS = ft_printf.c\
 	   ft_uitoa_base16.c\
 	   ft_toupper_str.c\
-	   ft_put_unsigned_int_fd.c\
 	   ft_ultoa_base16.c\
 	   ft_ulltoa_base16.c\
 	   ft_uitoa.c\

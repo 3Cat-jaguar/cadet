@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/03 16:21:31 by ylee              #+#    #+#             */
-/*   Updated: 2021/01/18 13:03:26 by ylee             ###   ########.fr       */
+/*   Updated: 2021/01/25 15:08:48 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 int				ft_printf(const char *str, ...);
 char			*ft_uitoa_base16(unsigned int num);
 char			*ft_toupper_str(char *str);
-void			ft_put_unsigned_int_fd(unsigned int n, int fd);
 char			*ft_ultoa_base16(unsigned long num);
 char			*ft_ulltoa_base16(unsigned long long num);
 char			*ft_uitoa(unsigned int num);
