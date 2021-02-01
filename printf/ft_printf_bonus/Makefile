@@ -3,10 +3,13 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
 SRCS = ft_printf.c\
 	   ft_uitoa_base16.c\
+	   ft_uitoa_base8.c\
 	   ft_toupper_str.c\
 	   ft_put_unsigned_int_fd.c\
 	   ft_ultoa_base16.c\
 	   ft_ulltoa_base16.c\
+	   ft_ultoa_base8.c\
+	   ft_ulltoa_base8.c\
 	   ft_uitoa.c\
 	   find_percent.c\
 	   ft_init_arg_list.c\
@@ -33,11 +36,7 @@ SRCS = ft_printf.c\
 	   print_type_f.c\
 	   print_type_g.c\
 	   print_type_e.c\
-	   modify_str_by_arg_bonus.c\
-	   print_type_n.c\
-	   print_type_f.c\
-	   print_type_g.c\
-	   print_type_e.c\
+	   print_type_o.c\
 	   modify_str_by_arg_bonus.c\
 	   testf.c
 
