@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 13:43:04 by ylee              #+#    #+#             */
-/*   Updated: 2020/12/17 13:52:07 by ylee             ###   ########.fr       */
+/*   Updated: 2021/02/01 15:12:55 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ char	*modify_str_by_arg_bonus(va_list ap, t_arg *arg)
 		result = print_type_g(ap, arg);
 	else if (spcf == 'e')
 		result = print_type_e(ap, arg);
+	else if (spec == 'o')
+		result = print_type_o(ap, arg);
 	return (result);
 }

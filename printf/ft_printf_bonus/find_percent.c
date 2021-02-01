@@ -6,7 +6,7 @@
 /*   By: ylee <ylee@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 13:35:45 by ylee              #+#    #+#             */
-/*   Updated: 2021/01/15 15:31:02 by ylee             ###   ########.fr       */
+/*   Updated: 2021/02/01 15:12:25 by ylee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*modify_str(va_list ap, t_arg *arg)
 {
 	if (arg->specifier == 'n' || arg->specifier == 'f'\
-			|| arg->specifier == 'g' || arg->specifier == 'e')
+			|| arg->specifier == 'g' || arg->specifier == 'e' || arg->specifier == 'o')
 		return (modify_str_by_arg_bonus(ap, arg));
 	return (modify_str_by_arg(ap, arg));
 }
